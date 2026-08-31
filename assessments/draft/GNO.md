@@ -85,15 +85,15 @@
 
 GNO is the native token of the Gnosis ecosystem. It is used in relation to GnosisDAO, Gnosis Chain, and the broader Gnosis infrastructure stack.
 
-GNO is a credible collateral candidate because it has strong public information, meaningful market liquidity, and a long operating history. The main residual risks are not issuer custody or redemption risk, but ecosystem dependency, smart-contract risk, and broader DeFi-market contagion.
+GNO is a credible collateral candidate because it has strong public information, meaningful market liquidity, and a long operating history. The main residual risks are Gnosis ecosystem dependency, smart-contract risk, and broader DeFi-market contagion.
 
 ## Introduction
 
-Gnosis is a long-standing Ethereum ecosystem project with a broad infrastructure footprint, including GnosisDAO, Gnosis Chain, Safe-related historical ecosystem links, and other Gnosis-associated products and initiatives.
+Gnosis is a long-standing Ethereum ecosystem project with a broad infrastructure footprint, including GnosisDAO, Gnosis Chain, and other products and initiatives.
 
-For Frankencoin, the relevant collateral exposure is the GNO token itself. GNO is not a tokenized claim on an issuer, custodian, or off-chain asset. Its value depends primarily on the relevance, activity, governance, treasury strength, and perceived long-term viability of the Gnosis ecosystem.
+The value of the GNO token thus depends primarily on the relevance, activity, governance, treasury strength, and perceived long-term viability of the Gnosis ecosystem.
 
-This means the main risk is economic rather than legal-counterparty risk. If the Gnosis ecosystem were to lose relevance, materially reduce operations, or fail to sustain demand for GNO, the token could suffer a severe correction because it has no hard redemption floor.
+If the Gnosis ecosystem were to lose relevance, mismanage its DAO treasury, or fail to sustain demand for GNO, the token could suffer a severe correction.
 
 ## Free Float/Liquidity
 
@@ -114,8 +114,6 @@ Public information is strong since there is a liquid secondary market and auctio
 Maximum Drawdown, 48h close-to-close: 17.94%
 
 The 99% 48h close-to-close VaR in the dataset is 13.72%, while the maximum 48h close-to-close drawdown is 17.94%. The minimum reserve requirement should therefore be 20%.
-
-However, because GNO is exposed to potential crypto ecosystem contagion, intraday drawdowns could be more severe than 20% and therefore a 40% reserve requirement is more suitable because of that correlation.
 
 ## Tail Risks
 
@@ -197,11 +195,9 @@ Severity: Moderate
 
 Compensation: 1.25%
 
-GNO is exposed to broader DeFi and Ethereum-market sentiment. A major DeFi stress event could have a major effect on GNO. 
+GNO is exposed to broader DeFi and Ethereum-market sentiment. A major DeFi stress event could have a major effect on GNO beyond the 20% reserve requirement.
 
-The higher reserve requirement already buffers this risk, which is important as it affects multiple tokens at once.
-
-An additional 1.25% compensation is however assigned for this contagion and ecosystem-correlation risk.
+A higher reserve requirement of 40% can buffer most of this tail risk, to ensure the impact would only be moderate (instead of severe). In that case, an additional 1.25% compensation is sufficient to account for this tail risk. If a future proposal requests a reserve requirement of just 20%, the compensation should be increased to 2.5%.
 
 ## Conclusion
 
