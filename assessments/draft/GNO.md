@@ -68,7 +68,7 @@
     }
   },
   "risk_parameters": {
-    "retained_reserve": 0.37,
+    "retained_reserve": 0.40,
     "target_interest_rate": 0.04,
     "global_minting_limit": 5000000,
     "liquidation_price": 30,
