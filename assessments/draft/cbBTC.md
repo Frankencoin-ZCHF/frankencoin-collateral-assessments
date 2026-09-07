@@ -2,7 +2,7 @@
 {
   "asset_name": "Coinbase Wrapped BTC",
   "asset_ticker": "cbBTC",
-  "contract_address": "0xA4158e4feF15Bda281695FcAC00BBf095cDA0f9A",
+  "contract_address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
   "assessment_date": "2027-08-01",
   "author": "Paolo Di Stefano",
   "links": {
