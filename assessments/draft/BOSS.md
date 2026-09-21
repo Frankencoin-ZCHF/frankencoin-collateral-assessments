@@ -155,7 +155,7 @@ The 2025 financial statements show a meaningful EBITDA recovery and positive ope
 
 Global Minting Limit: 5,000,000 ZCHF
 
-Since this risk is classified as Medium probability, it triggers a global minting limit requirement based on the framework. This means the withdrawable amount should remain significantly below what the equity pool could theoretically absorb. A ZCHF 3 million withdrawable amount appears appropriate for the initial onboarding. With a retained reserve of 40%, this implies a global minting limit of 5,000,000 ZCHF.
+Since this risk is classified as Medium probability, it triggers a global minting limit requirement based on the framework. This means the withdrawable amount should remain significantly below what the equity pool could theoretically absorb. A ZCHF 3 million withdrawable amount appears appropriate. With a retained reserve of 40%, this implies a global minting limit of 5,000,000 ZCHF.
 
 ### Smart Contract Risk: Smart-Contract Exploit
 
