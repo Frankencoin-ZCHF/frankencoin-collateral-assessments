@@ -95,7 +95,7 @@ The main risks are not only the exposure to a stock with limited price history i
 
 ## Introduction
 
-SPCXon represents tokenized exposure to Space Exploration Technologies Corp. SpaceX is one of the largest and most widely followed technology companies globally, with exposure to launch services, satellite infrastructure, and broader space-related infrastructure.
+SPCXon represents tokenized exposure to Space Exploration Technologies Corp. SpaceX is a space-infrastructure company focused on reusable rockets, satellite connectivity, crew/cargo spacecraft, and government/commercial launch services.
 
 The tokenized version introduces an additional RWA/security-token layer. The token is not only exposed to the ordinary price movement of the underlying equity exposure, but also to the mechanics of the Ondo tokenized asset wrapper.
 
@@ -103,7 +103,7 @@ The tokenized version introduces an additional RWA/security-token layer. The tok
 
 Classification: Strong
 
-SPCXon has strong public market visibility since listing and is supported by Ondo’s tokenized-stock infrastructure, and Ondo's own interface taps directly into traditional market liquidity. Besides Ondo's market place, the token is also listed on several venues like Binance, Gate, MEXC, BingX, and Uniswap.
+SPCXon has recorded some of the highest trading volume on the NYSE since its historic IPO this summer and is supported by Ondo’s tokenized-stock infrastructure. Ondo's own interface taps directly into traditional market liquidity. Besides Ondo's market place, the token is also listed on several venues like Binance, Gate, MEXC, BingX, and Uniswap.
 
 ## Public Information
 
@@ -133,7 +133,7 @@ Worst 48h close-to-close drawdown: -19.4% from 17 June to 22 June 2026
 
 The first weeks after a public listing are usually the most volatile, as the market is still finding an appropriate price. This is visible in SPCX: the strongest upside move and the worst close-to-close drawdown both occurred shortly after trading began. The asset moved from a first-day close of $160.95 to an intraday high of $225.64 only two trading days later, before falling sharply to $154.60 by 22 June.
 
-This means a retained reserve of 30% should be applied as the maximum drawdown is based on a very limited trading history. This way, it should cover market volatility under normal circumstances and account for the challenger reward.
+This means a retained reserve of 30% should be applied as the maximum drawdown is based on just a very limited trading history. This way, it should cover market volatility under normal circumstances and account for the challenger reward.
 
 ## Tail Risks
 
@@ -147,9 +147,9 @@ Severity: Severe
 
 Compensation: 1.00%
 
-SpaceX is a large and strategically important publicly listed company. Severe tail scenarios could materially impair the equity value, including fraud, governance failure, major operational disruption, a failed launch with significant financial or reputational consequences, regulatory intervention, loss of key contracts, or a material deterioration in investor confidence.
+SpaceX is a large and strategically important publicly listed company. Severe tail scenarios could materially impair the equity value, including fraud, major operational disruption, or a failed launch with significant financial or reputational consequences, regulatory intervention, or a material deterioration in investor confidence.
 
-These risks are not captured by ordinary short-term price volatility alone. A 1.00% compensation is therefore assigned to account for the single-company counterparty and business-risk exposure of the underlying asset.
+These risks are not captured by ordinary short-term price volatility alone. A 1.00% compensation is therefore assigned to account for the single-company counterparty and business-risk exposure of the underlying stock.
 
 ### Counterparty Risk: Ondo Finance
 
@@ -175,7 +175,7 @@ Compensation: 0.50%
 
 The probability of a major smart-contract issue appears low, but the severity could be critical if the token contract or transfer mechanics were impaired.
 
-Unlike a native asset, the collateral value depends on the underlying equity exposure in custody and the correct representation of the tokenized wrapper, meaning that a technical issue could lead to unbacked tokens or impaired transferability.
+The collateral value depends on the underlying equity exposure in custody and the correct representation of the tokenized wrapper, meaning that a technical issue could lead to unbacked tokens or impaired transferability.
 
 ### Governance Risk: Transfer restrictions / admin controls
 
