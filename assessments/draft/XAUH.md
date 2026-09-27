@@ -91,7 +91,7 @@ XAUH, however, is a tokenized-gold wrapper with a limited track record. Therefor
 
 ## Introduction
 
-XAUH is an ERC-20 token that gives holders exposure to physical gold. Herculis describes the asset as backed by Swiss-stored, insured, and audited LBMA 999.9 gold, with regular custody attestation by KPMG Switzerland. XAUH also exists on other networks, including TON and TRON. From 500 XAUH, physical redemptions are possible for KYC-ed holders at a 3% redemption fee plus applicable transportation and insurance costs.
+XAUH is an ERC-20 token that gives holders exposure to physical gold. Herculis describes the asset as backed by Swiss-stored, insured, and audited LBMA 999.9 gold, with regular custody attestation by KPMG Switzerland. XAUH also exists on other networks, including TON and TRON. From a minimum of 500 XAUH, physical redemptions are possible for KYC-ed holders at a 3% redemption fee plus applicable transportation and insurance costs.
 
 Herculis Tokens SA is incorporated in Panama as a subsidiary of Herculis Group, a Swiss Wealth Management & Asset Protection boutique founded in 2009, and aims to offer a more transparent and secure way for investors to participate in the gold market without the frictions typically associated with traditional gold investments.
 
@@ -99,7 +99,7 @@ Herculis Tokens SA is incorporated in Panama as a subsidiary of Herculis Group, 
 
 Classification: Sufficient
 
-XAUH currently has a highly concentrated holder distribution on Ethereum: around 86% of supply is held in a single issuer-controlled address, while roughly 9% sits in the Uniswap pool. However, Herculis plans to expand Uniswap liquidity, add Ethereum XAUH support to the existing Biconomy and BTSE listings, and integrate Ethereum XAUH with its live merchant/on-ramp integrations such as ChangeNOW, Changelly and Wert. The holder distribution is expected to improve as soon as these listings and integrations are finalised.
+XAUH currently has a highly concentrated holder distribution on Ethereum: around 86% of supply is held in a single issuer-controlled address, while roughly 9% sits in the Uniswap pool. Over the coming weeks, Herculis plans to expand Uniswap liquidity, add Ethereum XAUH support to the existing Biconomy and BTSE listings, and integrate Ethereum XAUH with its live merchant/on-ramp integrations such as ChangeNOW, Changelly and Wert. The holder distribution is expected to improve as soon as these listings and integrations are finalised.
 
 Importantly, XAUH also has a documented primary-market minting mechanism. KYC-approved customers can request new issuance either by contributing eligible physical gold or by transferring FIAT for newly issued XAUH. The free float is therefore considered sufficient for now, and is expected to become stronger when the planned listings and integrations are finalised.
 
@@ -183,11 +183,11 @@ Probability: Medium
 
 Severity: Severe
 
-Compensation: 1.00%
+Compensation: 0.50%
 
 The practical Ethereum liquidity source is currently the Uniswap pool as well as the direct minting/redemption path.
 
-This means that a Frankencoin liquidation could face a meaningful discount, as arbitrageurs would apply a haircut due to the limited possibility to sell the tokens on Uniswaps and additional costs for primary market redemptions. A 1.00% compensation is assigned for liquidity risk.
+This means that a Frankencoin liquidation could face a meaningful discount, as arbitrageurs would apply a haircut due to the limited possibility to sell the tokens on Uniswaps for a profit right away, and additional costs and frictions for primary market redemptions. A 0.50% compensation is assigned for liquidity risk.
 
 ### Contagion Risk: n/a
 
