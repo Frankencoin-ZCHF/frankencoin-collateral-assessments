@@ -74,7 +74,7 @@
     "liquidation_price": 80.00,
     "maturity": null,
     "auction_duration": 48,
-    "minimum_collateral": null
+    "minimum_collateral": 10
   }
 }
 ---
