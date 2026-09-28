@@ -205,6 +205,6 @@ No separate contagion-risk premium is assigned as XAUH does not depend on crypto
 
 The proposed retained reserve of 25% is appropriate relative to expected market volatilty of the underlying gold exposure, and leaves a substantial buffer for liquidation execution. It should not be interpreted as protection against issuer, custody, redemption, admin-control, or liquidity tail risks. Those risks are addressed primarily through the proposed 250,000 ZCHF global minting limit and the 2.5% target interest rate.
 
-The target interest rate of 2.5% is justified by the selected risk premia: 1.00% for issuer, custody, and redemption dependency, 0.5% for smart-contract and admin-control risk, 0.5% for governance risks, and 0.5% for liquidity risk as described.
+The target interest rate of 2.5% is justified by the selected risk premia: 1.00% for counterparty risk, 0.5% for smart-contract, 0.5% for governance risks, and 0.5% for liquidity risk as described.
 
 The proposed 250,000 ZCHF global minting limit is the primary safeguard as long as the free float and liquidity of the token are limited. The issuer has however indicated plans of growing the Ethereum version with additional integrations and CEX listings. A higher global minting limit should then be possible.
