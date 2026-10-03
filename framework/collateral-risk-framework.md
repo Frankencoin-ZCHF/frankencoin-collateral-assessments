@@ -1,7 +1,7 @@
 # Collateral Risk Framework
 
-**Version:** 3.0 Final Draft  
-**Date:** August 2026  
+**Version:** 1.4 Live Version
+**Date:** October 2026  
 **Author:** Paolo Di Stefano, Frankencoin Association  
 
 ## Purpose
@@ -30,46 +30,46 @@ The system becomes undercollateralized when collateral value does not suffice to
 
 Liquidations protect the system from undercollateralization. They are triggered by challenges and settled through auctions. For this to work, the system relies on participants willing to challenge positions, as well as on bidders willing to buy collateral in an auction.
 
-Challenges are incentivised by the challenger reward, but can only be started by putting up a stake of the same collateral. Potential challengers also require a certain level of confidence for the challenge to succeed to justify the opportunity cost of locking up capital.
+Challenges are incentivised by the challenger reward, but can only be started by putting up a stake of the same collateral. That means challengers require a certain level of confidence for the challenge to succeed to justify the opportunity cost of locking up capital.
 
-Auction bidders are motivated either by arbitrage, where the collateral can be sold for a profit right away, or by the collateral’s fundamental value. The latter could for example be because it represents ownership in a valuable asset off-chain, or because it can be redeemed for a monetary value.
+Auction bidders are motivated either by arbitrage, where the collateral can be sold for a profit right away, or by the collateral’s fundamental value.
 
 Besides the technical criteria listed [here](https://github.com/Frankencoin-ZCHF/Frankencoin/discussions/11), the following two conditions must be met for the liquidation mechanism to work as intended:
 
-- Free float: The collateral needs to be sufficiently distributed or easy to obtain such that enough independent owners can be incentivised to start a challenge.
+- Collateral availability: The collateral needs to be sufficiently distributed, tradeable, or otherwise accessible such that enough independent owners can be incentivised to start a challenge.
 
-- Public information: Challengers need to be able to evaluate expected auction outcomes. This can be based on observable market transactions or, for illiquid assets, on other public information allowing them to estimate the collateral’s market price.
+- Public information: Challengers need to be able to evaluate expected auction outcomes. This can be based on observable market transactions or, for illiquid assets, on other public information allowing them to estimate what bidders would be willing to pay for the collateral.
 
 If there is a liquid marketplace for the collateral, both conditions are typically met. This would also allow arbitrage bidders to step in, which should lead to the most efficient auction outcomes.
 
-The existence of a liquid marketplace is however not a strict requirement. Illiquid assets with sufficient free float and public information available can still be strong collateral candidates, but should be treated differently based on the following classifications:
+The existence of a liquid marketplace is however not a strict requirement. Illiquid assets with sufficient collateral availability and public information can still be strong collateral candidates, but should be treated differently based on the following classifications:
 
-#### Free Float
+#### Collateral Availability
 
-- Strong: Multiple independent venues exist to trade the collateral, or there are multiple ways to mint and redeem it. This is the preferred case, as no single party can significantly impair the collateral’s free float.
+- Strong: The collateral is broadly distributed and multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral or the auction exit path.
 
-- Sufficient: Liquidity is concentrated on one marketplace, or there is only one controlled mint and redeem mechanism. This is sufficient, but introduces a dependency on a single party who could potentially impair the collateral’s free float. This should be reflected in the tail risk analysis.
+- Sufficient: Access to the collateral is concentrated on one marketplace or controlled mint and redeem mechanism. This may be sufficient, but introduces dependency on a single party who could impair availability and liquidation efficiency. This should be reflected in the tail risk analysis.
 
 - Insufficient: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism for minting and redemption. In this case, it should not be accepted as collateral.
 
 #### Public Information
 
-- Strong: There is a liquid market with regular trading activity, allowing potential challengers to reliably estimate the proceeds an auction could achieve.
+- Strong: There is a liquid market with regular trading activity, allowing challengers to reliably estimate the proceeds an auction could achieve.
 
-- Sufficient: There is little or no observable trading activity, but public information allows potential challengers to estimate an expected auction outcome. This is sufficient, but should be accounted for through a more conservative reserve ratio and liquidation price.
+- Sufficient: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in a more conservative reserve ratio and liquidation price.
 
 - Insufficient: There is no reliable way for potential challengers to estimate a potential auction outcome. The token should therefore not be accepted as collateral.
 
-Both free float and public information should at least be classified as sufficient for the liquidation mechanism to work as intended. If a condition is classified as insufficient, the collateral should not be accepted.
+Both collateral availability and public information should at least be classified as sufficient for the liquidation mechanism to work as intended. If a condition is classified as insufficient, the collateral should not be accepted.
 
 
 ## 4. Loss scenarios
 
-Even if the liquidation mechanism works as intended, a liquidation can still result in a loss if the auction proceeds do not cover the outstanding debt and challenger reward. Declines below the liquidation price can typically be attributed to two different risk types:
+Even if the liquidation mechanism works as intended, a liquidation can still result in a loss if the auction proceeds do not cover the outstanding debt and challenger reward. Declines below the liquidation price can typically be attributed to two different types of risk:
 
 - Market risk: Price movements that can reasonably be expected under stressed but functioning market conditions.
 
-- Tail risk: Extraordinary, high-impact events such as hacks, de-pegs, technical failure, or a sudden collapse in market confidence.
+- Tail risk: Extraordinary, high-impact events beyond ordinary market volatility, such as hacks, de-pegs, fraud, or a sudden collapse in market confidence.
 
 
 ### 4.1 Market Risk
@@ -79,6 +79,7 @@ Market risk shall be assessed through the collateral’s price history, if avail
 This framework takes a more conservative approach than aiming for liquidations to be break-even on average. Liquidations caused by ordinary market risk should in general be fully absorbable by the system’s first line of defence: the overcollateralization of each position, which is determined by the retained reserve. 
 
 This means that liquidations caused by ordinary market risk should typically clear at a profit for the system (= penalty for liquidated borrowers). This incentivises borrowers to monitor collateral health more diligently, with the aim to reduce both the number of liquidations as well as volatility in the equity pool.
+
 Where a reliable price history is available, and returns are close to being normally distributed, market risk should be assessed using a 99% VaR estimate over twice the auction duration. An additional 2% buffer to account for the challenger reward shall then be added to establish the minimum retained reserve requirement, representing the percentage of minted ZCHF allocated to the minter reserve:
 
 <p align="center">
