@@ -94,25 +94,21 @@ For assets without normally distributed returns, the maximum drawdown over the s
 
 When no reliable price history is available, market risk should be assessed on a case-by-case basis using comparable assets or other appropriate methodologies. As the number of collateral assessments for such assets grows, this framework should be expanded to capture practical insights and improve consistency among asset classes.
 
-### 4.2 Tail Risk
+4.2 Tail Risk
 
-Tail risks can cause price declines beyond ordinary market movements and would therefore exceed what the first line of defence can absorb. Where such risks exist, the equity pool is at risk. FPS holders should therefore be compensated through an appropriate risk premium, while exposure to tail risks above a certain probability threshold should be limited to ensure that potential losses remain fully absorbable by the second line of defence.
+Tail risks can cause collateral values to decline beyond ordinary market movements and may therefore exceed what the first line of defence can absorb. Where such risks exist, the equity pool is at risk. FPS holders should therefore be compensated through an appropriate risk premium. At the same time, exposure to tail risks should be limited to ensure that potential losses remain fully absorbable by the second line of defence.
 
-Examples of tail risks include:
+In the context of Frankencoin, the most relevant collateral tail risks can be grouped into four categories:
 
-- Counterparty risk: The collateral depends on the solvency, integrity or operational reliability of an issuer, sponsor, or custodian. In such a case, sudden price declines could for example arise from fraud or insolvency.
+- Counterparty risk: The collateral depends on the solvency, integrity, or operational reliability of an issuer, sponsor, custodian, or other identifiable counterparty.
 
-- Smart-contract risk: The collateral, its wrapper or its redemption mechanism depends on smart contracts, bridges, or other blockchain infrastructure that may contain bugs, design flaws, or upgrade risks.
+- Smart-contract risk: The collateral, its wrapper, or its redemption mechanism depends on smart contracts, bridges, or other blockchain infrastructure that may contain bugs, design flaws, oracle failures, upgrade risks, or integration risks.
 
-- Governance risk: The collateral can be frozen, blacklisted, diluted, or otherwise affected by a governance body or someone with admin-control.
+- Governance risk: The collateral can be frozen, blacklisted, diluted, paused, upgraded, reconfigured, restricted, or otherwise impaired by a governance body, regulator, government authority, or someone with admin-control. This includes legal or regulatory actions where they affect the collateral through such control mechanisms.
 
-- Legal risk: The collateral may be technically transferable on-chain but subject to legal restrictions that limit who can hold, redeem or enforce rights attached to the token.
+- Liquidity risk: The collateral may be difficult to acquire, sell, or redeem in sufficient amounts during stress, especially if liquidity depends on a single marketplace or mint-and-redeem path that may become temporarily unavailable.
 
-- Liquidity risk: Liquidity is concentrated in a single marketplace, or the asset relies on a single controlled mint-and-redeem mechanism, meaning its free float could be significantly impaired if that single access point fails.
-
-- Contagion risk: The collateral may be exposed to tail-risk events originating elsewhere in the crypto ecosystem, for example through liquidation cascades or the failure of a related protocol or oracle, even if the collateral itself is not directly impaired.
-
-Tail risks usually cannot be assessed using the collateral’s own price history, but require a thorough understanding of the asset’s characteristics and dependencies. Once identified, it should be assessed whether:
+Tail risks usually cannot be assessed using the collateral’s own price history alone, but require a thorough understanding of the asset’s characteristics, control mechanisms, and exit paths. Once identified, it should be assessed whether:
 
   i) the tail risk is acceptable,
 
@@ -128,23 +124,25 @@ To achieve this, both the probability and potential severity of each identified 
 
 - Very Low (0.5%): The risk is identifiable but highly unlikely to materialize, for example where the collateral depends on well-established counterparties or infrastructure with a strong track record.
 
-- Low (1.0%): The risk is identifiable but unlikely to materialize, reflecting slightly higher operational complexity or a solid but more limited track record.
+- Low (1.0%): The risk is identifiable but unlikely to materialize, reflecting higher operational complexity or a more limited track record.
 
-- Medium (2.0-5.0%): The risk is material and requires meaningful compensation. This classification is appropriate where significant external dependencies exist, underlying infrastructure is relatively novel, or comparable failures have occurred in the past.
+- Medium (2.0-5.0%): The risk is material and requires meaningful compensation. This classification is appropriate where significant external dependencies exist, the underlying infrastructure is relatively novel, or comparable failures have occurred in the past.
 
 - High (>5.0%): The risk is severe, opaque or structurally difficult to assess. Such risks should generally not be accepted.
 
 The Medium category deliberately encompasses a range of probabilities. This provides flexibility to calibrate the applicable risk premium within that range, reflecting the collateral’s characteristics as well as the system’s risk appetite.
 
-Next, the potential severity of each tail risk should be assessed. Severity corresponds to the expected loss beyond the position’s overcollateralization if a tail risk event occurs. Severity should be classified using one of the following categories:
+Next, the potential severity of each tail risk should be assessed. Severity corresponds to the expected loss after the position’s own reserve has been depleted, assuming the tail-risk event occurs. It therefore measures the potential impairment of the remaining collateral value that could affect the equity pool.
 
-- Moderate (25%): This may apply where asset quality deteriorates beyond what is expected under normal market conditions, but the collateral retains most of its fundamental value, and remains both enforceable and transferable.
+Severity should be classified using one of the following categories:
 
-- Severe (50%): A material impairment of the remaining collateral value is expected. This may apply where liquidation remains possible, but market depth or asset quality have deteriorated materially.
+- Moderate (25%): The position reserve is breached, but the remaining collateral value is expected to remain largely intact. This may apply where liquidation is delayed or less efficient than expected, but the collateral remains fundamentally valuable, enforceable, and redeemable.
 
-- Critical (100%): No reliable residual recovery should be assumed. This may apply in cases of unlimited minting bugs, hacks, or fraud.
+- Severe (50%): The position reserve is breached and a material impairment of the remaining collateral value is expected. This may apply where liquidation remains possible, but redemption mechanics or asset quality have deteriorated materially.
 
-#### Compensation
+- Critical (100%): The position reserve is breached and no reliable residual recovery should be assumed. This may apply in cases of fraud, issuer default, major hacks, unlimited minting bugs, or other events that make the collateral effectively unrecoverable.
+
+#### Effective Interest Rate
 
 The required compensation for FPS holders can then be calculated by multiplying each tail risk’s probability with its expected severity. This will inform the risk premium required to reach the appropriate effective interest rate.
 
