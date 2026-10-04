@@ -30,13 +30,13 @@ The system becomes undercollateralized when collateral value does not suffice to
 
 Liquidations protect the system from undercollateralization. They are triggered by challenges and settled through auctions. For this to work, the system relies on participants willing to challenge positions, as well as on bidders willing to buy collateral in an auction.
 
-Challenges are incentivised by the challenger reward, but can only be started by putting up a stake of the same collateral. That means challengers require a certain level of confidence for the challenge to succeed to justify the opportunity cost of locking up capital.
+Challenges are incentivised by the challenger reward, but can only be started by putting up a stake of the same collateral. That means challengers require a certain level of confidence for the challenge to succeed to justify the opportunity cost of locking up capital. 
 
 Auction bidders are motivated either by arbitrage, where the collateral can be sold for a profit right away, or by the collateral’s fundamental value.
 
 Besides the technical criteria listed [here](https://github.com/Frankencoin-ZCHF/Frankencoin/discussions/11), the following two conditions must be met for the liquidation mechanism to work as intended:
 
-- Collateral availability: The collateral needs to be sufficiently distributed, tradeable, or otherwise accessible such that enough independent owners can be incentivised to start a challenge.
+- Free float: The collateral needs to be sufficiently distributed, tradeable, or otherwise accessible such that enough independent holders or buyers can be incentivised to start a challenge.
 
 - Public information: Challengers need to be able to evaluate expected auction outcomes. This can be based on observable market transactions or, for illiquid assets, on other public information allowing them to estimate what bidders would be willing to pay for the collateral.
 
@@ -44,13 +44,13 @@ If there is a liquid marketplace for the collateral, both conditions are typical
 
 The existence of a liquid marketplace is however not a strict requirement. Illiquid assets with sufficient collateral availability and public information can still be strong collateral candidates, but should be treated differently based on the following classifications:
 
-#### Collateral Availability
+#### Free Float
 
-- Strong: The collateral is broadly distributed and multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral or the auction exit path.
+- Strong: The collateral is either broadly distributed or multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral or the auction exit path.
 
-- Sufficient: Access to the collateral is concentrated on one marketplace or controlled mint and redeem mechanism. This may be sufficient, but introduces dependency on a single party who could impair availability and liquidation efficiency. This should be reflected in the tail risk analysis.
+- Sufficient: The collateral can be acquired in sufficient amounts, but access depends on a small group of holders, a single marketplace, or a controlled mint-and-redeem mechanism. This may be acceptable, but should be reflected in the tail-risk analysis.
 
-- Insufficient: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism for minting and redemption. In this case, it should not be accepted as collateral.
+- Insufficient: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism to acquire the collateral in sufficient amounts. In this case, it should not be accepted as collateral.
 
 #### Public Information
 
