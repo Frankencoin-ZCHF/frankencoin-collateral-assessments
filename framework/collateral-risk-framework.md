@@ -20,7 +20,7 @@ The system becomes undercollateralized when collateral value does not suffice to
 
   **1. The overcollateralization of each position:** Each position is protected by its own collateral buffer, determined by the retained reserve.
 
-  **2. The system’s equity capital:** The equity contributions by FPS holders absorb additional losses when the positions’ individual collateral buffers do not suffice.
+  **2. The system’s equity capital:** The equity contributions by FCS holders absorb additional losses when the positions’ individual collateral buffers do not suffice.
 
   **3. The minter reserve:** Finally, reserve contributions from other debt positions can be used as a measure of last resort, socialising residual losses across other minters.
 
@@ -36,31 +36,31 @@ Auction bidders are motivated either by arbitrage, where the collateral can be s
 
 Besides the technical criteria listed [here](https://github.com/Frankencoin-ZCHF/Frankencoin/discussions/11), the following two conditions must be met for the liquidation mechanism to work as intended:
 
-- Free float: The collateral needs to be sufficiently distributed, tradeable, or otherwise accessible such that enough independent holders or buyers can be incentivised to start a challenge.
+- **Free float**: The collateral needs to be sufficiently distributed, tradeable, or otherwise accessible such that enough independent holders or buyers can be incentivised to start a challenge.
 
-- Public information: Challengers need to be able to evaluate expected auction outcomes. This can be based on observable market transactions or, for illiquid assets, on other public information allowing them to estimate what bidders would be willing to pay for the collateral.
+- **Public information**: Challengers need to be able to evaluate expected auction outcomes. This can be based on observable market transactions or, for illiquid assets, on other public information allowing them to estimate what bidders would be willing to pay for the collateral.
 
 If there is a liquid marketplace for the collateral, both conditions are typically met. This would also allow arbitrage bidders to step in, which should lead to the most efficient auction outcomes.
 
-The existence of a liquid marketplace is however not a strict requirement. Illiquid assets with sufficient collateral availability and public information can still be strong collateral candidates, but should be treated differently based on the following classifications:
+The existence of a liquid marketplace is however not a strict requirement. Illiquid assets with sufficient free float and public information can still be strong collateral candidates, but should be treated differently based on the following classifications:
 
 #### Free Float
 
-- Strong: The collateral is either broadly distributed or multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral or the auction exit path.
+- **Strong**: The collateral is either broadly distributed or multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral.
 
-- Sufficient: The collateral can be acquired in sufficient amounts, but access depends on a small group of holders, a single marketplace, or a controlled mint-and-redeem mechanism. This may be acceptable, but should be reflected in the tail-risk analysis.
+- **Sufficient**: The collateral can be acquired in sufficient amounts, but access depends on a small group of holders, a single marketplace, or a controlled mint-and-redeem mechanism. This may be acceptable, but should be reflected in the tail-risk analysis.
 
-- Insufficient: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism to acquire the collateral in sufficient amounts. In this case, it should not be accepted as collateral.
+- **Insufficient**: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism to acquire the collateral in sufficient amounts. In this case, it should not be accepted as collateral.
 
 #### Public Information
 
-- Strong: There is a liquid market with regular trading activity, allowing challengers to reliably estimate the proceeds an auction could achieve.
+- **Strong**: There is a liquid market with regular trading activity, allowing challengers to reliably estimate the proceeds an auction could achieve.
 
-- Sufficient: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in a more conservative reserve ratio and liquidation price.
+- **Sufficient**: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in a more conservative reserve ratio and liquidation price.
 
-- Insufficient: There is no reliable way for potential challengers to estimate a potential auction outcome. The token should therefore not be accepted as collateral.
+- **Insufficient**: There is no reliable way for potential challengers to estimate a potential auction outcome. The token should therefore not be accepted as collateral.
 
-Both collateral availability and public information should at least be classified as sufficient for the liquidation mechanism to work as intended. If a condition is classified as insufficient, the collateral should not be accepted.
+Both free float and public information should at least be classified as sufficient for the liquidation mechanism to work as intended. If a condition is classified as insufficient, the collateral should not be accepted.
 
 
 ## 4. Loss scenarios
@@ -94,19 +94,19 @@ For assets without normally distributed returns, the maximum drawdown over the s
 
 When no reliable price history is available, market risk should be assessed on a case-by-case basis using comparable assets or other appropriate methodologies. As the number of collateral assessments for such assets grows, this framework should be expanded to capture practical insights and improve consistency among asset classes.
 
-4.2 Tail Risk
+### 4.2 Tail Risk
 
-Tail risks can cause collateral values to decline beyond ordinary market movements and may therefore exceed what the first line of defence can absorb. Where such risks exist, the equity pool is at risk. FPS holders should therefore be compensated through an appropriate risk premium. At the same time, exposure to tail risks should be limited to ensure that potential losses remain fully absorbable by the second line of defence.
+Tail risks can cause collateral values to decline beyond ordinary market movements and may therefore exceed what the first line of defence can absorb. Where such risks exist, the equity pool is at risk. FCS holders should therefore be compensated through an appropriate risk premium. At the same time, exposure to tail risks beyond a certain probability threshold should be limited to ensure that potential losses remain fully absorbable by the second line of defence.
 
 In the context of Frankencoin, the most relevant collateral tail risks can be grouped into four categories:
 
-- Counterparty risk: The collateral depends on the solvency, integrity, or operational reliability of an issuer, sponsor, custodian, or other identifiable counterparty.
+- **Counterparty risk**: The collateral depends on the solvency, integrity, or operational reliability of an issuer, sponsor, custodian, or other identifiable counterparty.
 
-- Smart-contract risk: The collateral, its wrapper, or its redemption mechanism depends on smart contracts, bridges, or other blockchain infrastructure that may contain bugs, design flaws, oracle failures, upgrade risks, or integration risks.
+- **Smart-contract risk**: The collateral, its wrapper, or its redemption mechanism depends on smart contracts, bridges, or other blockchain infrastructure that may contain bugs, design flaws, oracle failures, upgrade risks, or integration risks.
 
-- Governance risk: The collateral can be frozen, blacklisted, diluted, paused, upgraded, reconfigured, restricted, or otherwise impaired by a governance body, regulator, government authority, or someone with admin-control. This includes legal or regulatory actions where they affect the collateral through such control mechanisms.
+- **Governance risk**: The collateral can be frozen, blacklisted, diluted, paused, upgraded, reconfigured, restricted, or otherwise impaired by a governance body, regulator, government authority, or someone with admin-control. This includes legal or regulatory actions where they affect the collateral through such control mechanisms.
 
-- Liquidity risk: The collateral may be difficult to acquire, sell, or redeem in sufficient amounts during stress, especially if liquidity depends on a single marketplace or mint-and-redeem path that may become temporarily unavailable.
+- **Liquidity risk**: The collateral may be difficult to acquire, sell, or redeem in sufficient amounts during stress, especially if liquidity depends on a single marketplace or mint-and-redeem path that may become temporarily unavailable.
 
 Tail risks usually cannot be assessed using the collateral’s own price history alone, but require a thorough understanding of the asset’s characteristics, control mechanisms, and exit paths. Once identified, it should be assessed whether:
 
@@ -116,19 +116,19 @@ Tail risks usually cannot be assessed using the collateral’s own price history
 
   iii) to what extent (additional) exposure is justified, and 
 
-  iv) what risk premium would appropriately compensate FPS holders.
+  iv) what risk premium would appropriately compensate FCS holders.
 
 To achieve this, both the probability and potential severity of each identified tail risk should be estimated. Probabilities should be classified using one of the following categories, and be interpreted as approximate annual probabilities for the tail risk to occur.
 
-- Negligible (<0.5%): The risk only exists in theory and does not need to be explicitly priced.
+- **Negligible (<0.5%)**: The risk only exists in theory and does not need to be explicitly priced.
 
-- Very Low (0.5%): The risk is identifiable but highly unlikely to materialize, for example where the collateral depends on well-established counterparties or infrastructure with a strong track record.
+- **Very Low (0.5%)**: The risk is identifiable but highly unlikely to materialize, for example where the collateral depends on well-established counterparties or infrastructure with a strong track record.
 
-- Low (1.0%): The risk is identifiable but unlikely to materialize, reflecting higher operational complexity or a more limited track record.
+- **Low (1.0%)**: The risk is identifiable but unlikely to materialize, reflecting higher operational complexity or a more limited track record.
 
-- Medium (2.0-5.0%): The risk is material and requires meaningful compensation. This classification is appropriate where significant external dependencies exist, the underlying infrastructure is relatively novel, or comparable failures have occurred in the past.
+- **Medium (2.0-5.0%)**: The risk is material and requires meaningful compensation. This classification is appropriate where significant external dependencies exist, the underlying infrastructure is relatively novel, or comparable failures have occurred in the past.
 
-- High (>5.0%): The risk is severe, opaque or structurally difficult to assess. Such risks should generally not be accepted.
+- **High (>5.0%)**: The risk is severe, opaque or structurally difficult to assess. Such risks should generally not be accepted.
 
 The Medium category deliberately encompasses a range of probabilities. This provides flexibility to calibrate the applicable risk premium within that range, reflecting the collateral’s characteristics as well as the system’s risk appetite.
 
@@ -136,15 +136,15 @@ Next, the potential severity of each tail risk should be assessed. Severity corr
 
 Severity should be classified using one of the following categories:
 
-- Moderate (25%): The position reserve is breached, but the remaining collateral value is expected to remain largely intact. This may apply where liquidation is delayed or less efficient than expected, but the collateral remains fundamentally valuable, enforceable, and redeemable.
+- **Moderate (25%)**: The position reserve is breached, but the remaining collateral value is expected to remain largely intact. This may apply where liquidation is delayed or less efficient than expected, but the collateral remains fundamentally valuable, enforceable, and redeemable.
 
-- Severe (50%): The position reserve is breached and a material impairment of the remaining collateral value is expected. This may apply where liquidation remains possible, but redemption mechanics or asset quality have deteriorated materially.
+- **Severe (50%)**: The position reserve is breached and a material impairment of the remaining collateral value is expected. This may apply where liquidation remains possible, but redemption mechanics or asset quality have deteriorated materially.
 
-- Critical (100%): The position reserve is breached and no reliable residual recovery should be assumed. This may apply in cases of fraud, issuer default, major hacks, unlimited minting bugs, or other events that make the collateral effectively unrecoverable.
+- **Critical (100%)**: The position reserve is breached and no reliable residual recovery should be assumed. This may apply in cases of fraud, issuer default, major hacks, unlimited minting bugs, or other events that make the collateral effectively unrecoverable.
 
-#### Effective Interest Rate
+### 4.3 Effective Interest Rate
 
-The required compensation for FPS holders can then be calculated by multiplying each tail risk’s probability with its expected severity. This will inform the risk premium required to reach the appropriate effective interest rate.
+The required compensation for FCS holders can then be calculated by multiplying each tail risk’s probability with its expected severity. This will inform the risk premium required to reach the appropriate effective interest rate.
 
 Let C<sub>i</sub> denote the required compensation for tail-risk event i. Let P<sub>i</sub> ∈ [0.5%, 5%] denote the estimated annual probability of that event, and let S<sub>i</sub> ∈ {25%, 50%, 100%} denote its severity category: moderate, severe, or critical. The required compensation for event i is then C<sub>i</sub> = P<sub>i</sub> × S<sub>i</sub>. Summing this across all identified tail risks, the effective annual interest rate should be given as follows:
 
@@ -152,7 +152,7 @@ Let C<sub>i</sub> denote the required compensation for tail-risk event i. Let P<
   <strong>Effective Interest = Σ<sub>i</sub> C<sub>i</sub> = Σ<sub>i</sub> (P<sub>i</sub> × S<sub>i</sub>)</strong>
 </p>
   
-#### Global Minting Limit
+### 4.4 Global Minting Limit
 
 Besides determining the interest rate, tail risks should also inform the global minting limit to ensure that any single plausible tail-risk event does not threaten the system’s survival. This means that for each identified tail risk with at least a medium probability assigned, the withdrawable amount, corresponding to the global minting limit without the retained reserve, should remain significantly below the equity capital at stake.
 
@@ -186,4 +186,4 @@ Collateral risk management should follow a consistent logic across collateral as
 
 Sufficient free float enables timely challenges, and the availability of public information allows challengers to assess expected auction outcomes. Both are essential collateral requirements. 
 
-Liquidations may arise from ordinary market risk or from tail risk scenarios. Price declines from ordinary market risk should typically be absorbable by the first line of defence, while losses from tail-risk scenarios above a certain probability threshold should be absorbable by the second line of defence to ensure the system’s survival, and FPS holders should be compensated for the capital at stake.
+Liquidations may arise from ordinary market risk or from tail risk scenarios. Price declines from ordinary market risk should typically be absorbable by the first line of defence, while losses from tail-risk scenarios above a certain probability threshold should be absorbable by the second line of defence to ensure the system’s survival, and FCS holders should be compensated for the capital at stake.
