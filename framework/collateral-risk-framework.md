@@ -162,7 +162,7 @@ When the same tail risk already affects another active collateral, for example b
 
 ## 5. Parameter Calibration
 
-The most important parameters for new collateral proposals are the retained reserve, effective interest rate, and global minting limit, which have been established in the previous two sections. The retained reserve and the global minting limit can be entered as established, while the effective interest rate depends both on the system’s base rate as well as the collateral’s specific risk premium.
+The most important parameters for new collateral proposals are the retained reserve, effective interest rate, and global minting limit, which have been established in the previous two sections. The retained reserve and the global minting limit can be proposed as established, while the effective interest rate depends both on the system’s base rate as well as the collateral’s specific risk premium.
  
 This means that the risk premium to be specified in the collateral proposal is calculated as follows:
 
