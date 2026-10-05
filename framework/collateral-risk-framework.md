@@ -26,7 +26,7 @@ The system becomes undercollateralized when collateral value does not suffice to
 
 
 
-## 3. Liquidation Mechanism & Collateral Prerequisites
+## 3. Liquidation Mechanism
 
 Liquidations protect the system from undercollateralization. They are triggered by challenges and settled through auctions. For this to work, the system relies on participants willing to challenge positions, as well as on bidders willing to buy collateral in an auction.
 
@@ -63,7 +63,7 @@ The existence of a liquid marketplace is however not a strict requirement. Illiq
 Both free float and public information should at least be classified as sufficient for the liquidation mechanism to work as intended. If a condition is classified as insufficient, the collateral should not be accepted.
 
 
-## 4. Loss scenarios & Core Risk Parameters
+## 4. Loss scenarios
 
 Even if the liquidation mechanism works as intended, a liquidation can still result in a loss if the auction proceeds do not cover the outstanding debt and challenger reward. Declines below the liquidation price can typically be attributed to two different types of risk:
 
@@ -160,7 +160,7 @@ Besides determining the interest rate, tail risks should also inform the global 
 
 When the same tail risk already affects another active collateral, for example because the counterparty is the same, this equation should hold true for their combined global minting limit.
 
-## 5. Additional Proposal Parameters
+## 5. Parameter Calibration
 
 The most important parameters for new collateral proposals are the retained reserve, global minting limit, and effective interest rate, which have been established in the previous two sections. The retained reserve and the global minting limit can be entered as established, while the effective interest rate depends both on the system’s base rate as well as the collateral’s specific risk premium.
  
