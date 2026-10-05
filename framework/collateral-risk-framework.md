@@ -4,7 +4,7 @@
 **Date:** October 2026  
 **Author:** Paolo Di Stefano, Frankencoin Association  
 
-## 0. Purpose
+## Purpose
 
 This framework sets out the guiding principles for collateral risk management. It is intended to make governance decisions around collateral proposals more transparent, and risk parameters across collateral assets more consistent.
 
