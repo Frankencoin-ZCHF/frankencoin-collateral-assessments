@@ -80,6 +80,8 @@ This framework takes a more conservative approach than aiming for liquidations t
 
 This means that liquidations caused by ordinary market risk should typically clear at a profit for the system (= penalty for liquidated borrowers). This incentivises borrowers to monitor collateral health more diligently, with the aim to reduce both the number of liquidations as well as volatility in the equity pool.
 
+#### 4.1.1 Retained Reserve
+
 Where a reliable price history is available, and returns are close to being normally distributed, market risk should be assessed using a 99% VaR estimate over twice the auction duration. An additional 2% buffer to account for the challenger reward shall then be added to establish the minimum retained reserve requirement, representing the percentage of minted ZCHF allocated to the minter reserve:
 
 <p align="center">
@@ -142,7 +144,7 @@ Severity should be classified using one of the following categories:
 
 - **Critical (100%)**: The position reserve is breached and no reliable residual recovery should be assumed. This may apply in cases of fraud, issuer default, major hacks, unlimited minting bugs, or other events that make the collateral effectively unrecoverable.
 
-### 4.3 Effective Interest Rate
+### 4.2.1 Effective Interest Rate
 
 The required compensation for FCS holders can then be calculated by multiplying each tail risk’s probability with its expected severity. This will inform the risk premium required to reach the appropriate effective interest rate.
 
@@ -152,7 +154,7 @@ Let C<sub>i</sub> denote the required compensation for tail-risk event i. Let P<
   <strong>Effective Interest = Σ<sub>i</sub> C<sub>i</sub> = Σ<sub>i</sub> (P<sub>i</sub> × S<sub>i</sub>)</strong>
 </p>
   
-### 4.4 Global Minting Limit
+### 4.2.2 Global Minting Limit
 
 Besides determining the interest rate, tail risks should also inform the global minting limit to ensure that any single plausible tail-risk event does not threaten the system’s survival. This means that for each identified tail risk with at least a medium probability assigned, the withdrawable amount, corresponding to the global minting limit without the retained reserve, should remain significantly below the equity capital at stake.
 
