@@ -67,9 +67,9 @@ Both free float and public information should at least be classified as sufficie
 
 Even if the liquidation mechanism works as intended, a liquidation can still result in a loss if the auction proceeds do not cover the outstanding debt and challenger reward. Declines below the liquidation price can typically be attributed to two different types of risk:
 
-- Market risk: Price movements that can reasonably be expected under stressed but functioning market conditions.
+- **Market risk**: Price movements that can reasonably be expected under stressed but functioning market conditions.
 
-- Tail risk: Extraordinary, high-impact events beyond ordinary market volatility, such as hacks, de-pegs, fraud, or a sudden collapse in market confidence.
+- **Tail risk**: Extraordinary, high-impact events beyond ordinary market volatility, such as hacks, de-pegs, fraud, or a sudden collapse in market confidence.
 
 
 ### 4.1 Market Risk
