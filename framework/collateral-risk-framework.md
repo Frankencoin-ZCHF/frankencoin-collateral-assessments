@@ -26,7 +26,7 @@ The system becomes undercollateralized when collateral value does not suffice to
 
 
 
-## 3. Liquidation Mechanism
+## 3. Liquidation Mechanism & Collateral Prerequisites
 
 Liquidations protect the system from undercollateralization. They are triggered by challenges and settled through auctions. For this to work, the system relies on participants willing to challenge positions, as well as on bidders willing to buy collateral in an auction.
 
