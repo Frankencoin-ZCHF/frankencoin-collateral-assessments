@@ -44,7 +44,7 @@ If there is a liquid marketplace for the collateral, both conditions are typical
 
 The existence of a liquid marketplace is however not a strict requirement. Illiquid assets with sufficient free float and public information can still be strong collateral candidates, but should be treated differently based on the following classifications:
 
-**Free Float**
+### 3.1 Free Float
 
 - **Strong**: The collateral is either broadly distributed or multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral.
 
@@ -52,7 +52,7 @@ The existence of a liquid marketplace is however not a strict requirement. Illiq
 
 - **Insufficient**: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism to acquire the collateral in sufficient amounts. In this case, it should not be accepted as collateral.
 
-**Public Information**
+### 3.2 Public Information
 
 - **Strong**: There is a liquid market with regular trading activity, allowing challengers to reliably estimate the proceeds an auction could achieve.
 
