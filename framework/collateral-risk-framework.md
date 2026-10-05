@@ -170,7 +170,7 @@ This means that the risk premium to be specified in the collateral proposal is c
   <strong>Risk Premium = (1- Retained Reserve) × Effective Interest Rate - Base Rate</strong>
 </p>
 
-Each proposal further has to define the liquidation price, maturity, auction duration, and minimum collateral amount. These should be defined as follows:
+Each proposal further has to define the liquidation price, maturity, auction duration, and minimum collateral amount. These do not follow strict formulas but should be proposed according to the following guiding principles:
 
 - **Liquidation price**: It should be set below the current market price, at a level where minters can reasonably assume that their positions are not at risk of liquidation. When the current market price is not observable, an additional buffer should be applied.
 
