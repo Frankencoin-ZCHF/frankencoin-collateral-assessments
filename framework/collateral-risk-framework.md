@@ -172,13 +172,13 @@ This means that the risk premium to be specified in the collateral proposal is c
 
 Each proposal further has to define the liquidation price, maturity, auction duration, and minimum collateral amount. These should be defined as follows:
 
-- Liquidation price: It should be set below the current market price, at a level where minters can reasonably assume that their positions are not at risk of liquidation. When the current market price is not observable, an additional buffer should be applied.
+- **Liquidation price**: It should be set below the current market price, at a level where minters can reasonably assume that their positions are not at risk of liquidation. When the current market price is not observable, an additional buffer should be applied.
 
-- Maturity: Shorter maturities are appropriate for more complex and less battle-tested collateral types, as this would allow for more frequent reassessment, and vice versa. 
+- **Maturity**: Shorter maturities are appropriate for more complex and less battle-tested collateral types, as this would allow for more frequent reassessment, and vice versa. 
 
-- Auction duration: More liquid assets typically benefit from shorter auction durations, while longer auction durations are a better fit for less liquid assets to attract more bidders.
+- **Auction duration**: More liquid assets typically benefit from shorter auction durations, while longer auction durations are a better fit for less liquid assets to attract more bidders.
 
-- Minimum Collateral: The minimum collateral amount should exceed a minimum of 5,000 ZCHF in liquidation value, with 7,500 ZCHF or more being preferable.
+- **Minimum Collateral**: The minimum collateral amount should exceed a minimum of 5,000 ZCHF in liquidation value, with 7,500 ZCHF or more being preferable.
 
 In general, riskier or less proven collateral should be introduced with more conservative parameters and shorter maturities. Risk parameters should always be calibrated in relation to each other, and in relation to the existing collateral base.
 
