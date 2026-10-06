@@ -48,7 +48,7 @@ The existence of a liquid marketplace is however not a strict requirement. Illiq
 
 - **Strong**: The collateral is either broadly distributed or multiple independent venues or mechanisms exist to acquire and sell it. This is the preferred case, as no single holder or intermediary can significantly impair access to the collateral.
 
-- **Sufficient**: The collateral can be acquired in sufficient amounts, but access depends on a small group of holders, a single marketplace, or a controlled mint-and-redeem mechanism. This may be acceptable, but should be reflected in the tail-risk analysis.
+- **Sufficient**: The collateral can be acquired in sufficient amounts, but access depends on a small group of holders, a single marketplace, or a controlled mint-and-redeem mechanism. This may be acceptable, but should be reflected in the global minting limit and in the tail-risk analysis.
 
 - **Insufficient**: Ownership is concentrated, there is no liquid marketplace, and there is no reliable mechanism to acquire the collateral in sufficient amounts. In this case, it should not be accepted as collateral.
 
