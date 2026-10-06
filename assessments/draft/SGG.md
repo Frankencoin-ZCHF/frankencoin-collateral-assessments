@@ -77,11 +77,9 @@ The proposed 25% retained reserve addresses ordinary gold-price volatility and l
 
 Classification: Sufficient
 
-SGG is freely transferable as an ERC-20 token and has no allowlist, so anyone can hold it and participate in Frankencoin challenges and auctions. SGG can also be physically redeemed from a single ounce through Swissgrams and its first dealer partner, pro aurum, according to the Token Terms.
+SGG can be purchased through Mt Pelerin and redeemed from a single ounce through Swissgrams and its first dealer partner, pro aurum. The current on-chain supply is still small, but SGG has a documented primary-market minting and redemption mechanism. Tokens are released only against matching physical coins deposited into the reserve, and redeemed tokens can be exchanged for whole coins. This creates a credible acquisition and exit path, although liquidity still depends on Mt Pelerin availability, Swissgrams' primary-market process, dealer operations, and eligible physical coins.
 
-The current on-chain supply is still small, but SGG has a documented primary-market minting and redemption mechanism. Tokens are released only against matching physical coins deposited into the reserve, and redeemed tokens can be exchanged for whole coins. This creates a credible expansion and exit path, although it depends on Swissgrams, dealer operations, and the availability of eligible coins.
-
-The proposed 250,000 ZCHF global minting limit is reasonable as an initial cap because it limits Frankencoin's exposure while the SGG market develops. At a 3,000 ZCHF liquidation price, the full limit would require roughly 84 SGG of collateral exposure. This is modest in relation to the physical gold market, but should remain linked to the actual circulating SGG supply and available redemption/minting capacity. If supply and liquidity do not expand, the limit should not be increased.
+The proposed 250,000 ZCHF global minting limit is reasonable as an initial cap. 
 
 ## Public Information
 
@@ -98,8 +96,6 @@ Challengers should therefore be able to estimate likely auction outcomes by refe
 Maximum Drawdown, 96h close-to-close: 12.00%
 
 To account for ordinary gold-price volatility over 96h, the 2% challenger reward, and applying an additional haircut for liquidation costs and potential time delays, a 25% minter reserve appears appropriate.
-
-The proposed liquidation price of 3,000 ZCHF per SGG is conservative relative to the current value of one troy ounce of gold and leaves a substantial buffer for liquidation execution.
 
 ## Tail Risks
 
@@ -147,12 +143,12 @@ Compensation: 0.50%
 
 Assessment: SGG is currently an early-stage tokenized gold product with limited secondary-market depth. In a liquidation, challengers may struggle to acquire or recycle sufficient SGG quickly if on-chain liquidity is thin or if primary minting/redemption requires operational coordination.
 
-The exit path is stronger than for many tokenized gold products because SGG can be redeemed from a single ounce. However, physical redemption still involves process risk, timing frictions, minting/redemption fees, VAT where applicable, and third-party costs such as shipping and insurance. Arbitrageurs would therefore likely apply a haircut for delayed exit and redemption uncertainty. A 0.50% compensation is assigned for this risk.
+The exit path is stronger than for many tokenized gold products because SGG can be redeemed from a single ounce. However, physical redemption still potentially involves process risk and timing frictions. A 0.50% compensation is assigned for this risk.
 
 ## Conclusion
 
 The proposed retained reserve of 25% is appropriate relative to expected market volatility of the underlying gold exposure and leaves a substantial buffer for liquidation execution. It should not be interpreted as full protection against issuer, custody, redemption, smart-contract, or liquidity tail risks. Those risks are addressed primarily through the proposed 250,000 ZCHF global minting limit and the 2.0% target interest rate.
 
-The target interest rate of 2.0% is justified by the selected risk premia: 1.00% for counterparty risk, 0.50% for smart-contract risk, 0.00% for governance risk, and 0.50% for liquidity risk.
+The target interest rate of 2.0% is justified by the selected risk premia: 1.00% for counterparty risk, 0.50% for smart-contract risk, and 0.50% for liquidity risk.
 
-The proposed 250,000 ZCHF global minting limit is the primary safeguard as long as the free float and secondary-market liquidity of SGG remain limited. The Swiss-law structure, Swiss custody, daily inventory reporting, and one-ounce physical redemption path make SGG a credible collateral candidate, provided onboarding starts with a conservative initial limit.
+The proposed 250,000 ZCHF global minting limit is the primary safeguard as long as the free float and secondary-market liquidity of SGG remain limited.
