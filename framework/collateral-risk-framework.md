@@ -160,7 +160,7 @@ Besides determining the interest rate, tail risks should also inform the global 
 
 When the same tail risk already affects another active collateral, for example because the counterparty is the same, this equation should hold true for their combined global minting limit.
 
-The global minting limit should also be calibrated in relation to the collateral’s available free float. Even if the full minting limit is used and the corresponding collateral is locked in the protocol, enough collateral should remain accessible outside the protocol for challengers to acquire it and initiate liquidations. That means that where the circulating supply cannot be expanded easily, the global minting limit should remain below the total freely available supply.
+The global minting limit should also be calibrated in relation to the collateral’s available free float. Even if the full minting limit is used and the corresponding collateral is locked in the protocol, enough collateral should remain accessible outside the protocol for challengers to acquire it and initiate liquidations.
 
 ## 5. Parameter Calibration
 
@@ -172,7 +172,7 @@ This means that the risk premium to be specified in the collateral proposal is c
   <strong>Risk Premium = (1- Retained Reserve) × Effective Interest Rate - Base Rate</strong>
 </p>
 
-Each proposal further has to define the liquidation price, maturity, auction duration, and minimum collateral amount. These do not follow strict formulas but should be proposed according to the following guiding principles:
+Each proposal must also define the liquidation price, maturity, auction duration, and minimum collateral amount. These do not follow strict formulas but should be proposed according to the following guiding principles:
 
 - **Liquidation price**: It should be set below the current market price, at a level where minters can reasonably assume that their positions are not at risk of liquidation. When the current market price is not observable, an additional buffer should be applied.
 
