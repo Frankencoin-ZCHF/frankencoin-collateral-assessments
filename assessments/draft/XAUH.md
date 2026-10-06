@@ -73,7 +73,7 @@ The underlying exposure is high-quality and relatively low-volatility, but XAUH 
 
 The proposed 25% retained reserve addresses ordinary gold-price volatility and liquidation execution risk. The proposed 250,000 ZCHF global minting limit and 2.5% target interest rate are the main safeguards against the wrapper-specific tail risks.
 
-## Free Float/Liquidity
+## Free Float
 
 Classification: Sufficient
 
@@ -81,13 +81,15 @@ XAUH currently has a highly concentrated holder distribution on Ethereum: around
 
 Importantly, XAUH also has a documented primary-market minting mechanism. KYC-approved customers can request new issuance either by contributing eligible physical gold or by transferring FIAT for newly issued XAUH.
 
+Based on these characteristics, a 250,000 ZCHF minting limit is reasonable.
+
 ## Public Information
 
 Classification: Strong
 
-Public information is strong. XAUH has a public website, whitepaper, Ethereum token contract, CoinGecko listing, and public market data.
+XAUH references a highly liquid and observable gold market, and the issuer provides regular attestations for the underlying reserves.
 
-Since the underlying is Gold, other gold markets can be used as a reference to derive the XAUH token price with applying a potential discount for the physical redemption and delivery process.
+Challengers should therefore be able to estimate likely auction outcomes by referencing the gold price, applying any redemption and liquidity discount, and accounting for the stated redemption process and fees.
 
 ## Market Risk
 
@@ -127,7 +129,7 @@ Severity: Severe
 
 Compensation: 0.50%
 
-Assessment: XAUH is issued by Herculis Tokens SA, while the underlying physical gold is held in custody in Switzerland. Herculis Tokens SA is incorporated in Panama and reports to the local regulator. This creates a governance/admin-control risk because the regulator could require the issuer to freeze or restrict operations.
+Assessment: XAUH is issued by Herculis Tokens SA, while the underlying physical gold is held in custody in Switzerland. Herculis Tokens SA is incorporated in Panama and reports to the local regulator. This creates a governance/admin-control risk because the regulator in Panama could potentially require the issuer to freeze or restrict operations.
 
 The token contract also includes address-level blocking controls, including functions to add or remove addresses from a blocked list, check whether an address is blocked, and destroy funds held by a blocked address. These controls are not unusual for centrally issued RWA tokens, but they create a residual governance/admin-control risk for Frankencoin liquidations. A 0.50% compensation is assigned for this risk.
 
@@ -139,9 +141,9 @@ Severity: Severe
 
 Compensation: 0.50%
 
-Assessment: Ethereum XAUH liquidity is limited, and the holder base is currently highly concentrated. The practical Ethereum liquidity sources are the Uniswap pool and the direct minting/redemption path. In a Frankencoin liquidation, the unavailability of these paths could delay the challenge process because potential challengers may not be able to acquire or recycle sufficient XAUH quickly and at a predictable price.
+Assessment: Ethereum XAUH liquidity is limited and holder concentration is high. In a liquidation, challengers may struggle to acquire sufficient XAUH quickly if the Uniswap pool or direct minting/redemption path is unavailable or costly.
 
-The exit path after a successful challenge could also be impaired. A challenger may face limited immediate secondary-market depth and may need to rely on primary-market redemption, which can involve KYC, minimum redemption sizes, redemption fees, delivery costs, and timing frictions. Arbitrageurs would therefore likely apply a significant haircut to compensate for delayed exit, limited executable liquidity, and redemption uncertainty. A 0.50% compensation is assigned for this risk.
+The exit path could also be impaired because secondary-market depth is limited and primary redemption involves KYC, minimum sizes, fees, delivery costs, and timing frictions. Arbitrageurs would therefore likely apply a haircut for delayed exit and redemption uncertainty. A 0.50% compensation is assigned for this risk.
 
 ## Conclusion
 
