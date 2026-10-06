@@ -160,7 +160,7 @@ Besides determining the interest rate, tail risks should also inform the global 
 
 When the same tail risk already affects another active collateral, for example because the counterparty is the same, this equation should hold true for their combined global minting limit.
 
-The global minting limit should also be calibrated in relation to the collateral’s available free float. Even if the full minting limit is used and the corresponding collateral is locked in the protocol, enough collateral should remain accessible outside the protocol for challengers to acquire it and initiate liquidations. That means that where the circulating supply cannot be expanded permissionlessly, the global minting limit should remain below the total freely available supply.
+The global minting limit should also be calibrated in relation to the collateral’s available free float. Even if the full minting limit is used and the corresponding collateral is locked in the protocol, enough collateral should remain accessible outside the protocol for challengers to acquire it and initiate liquidations. That means that where the circulating supply cannot be expanded easily, the global minting limit should remain below the total freely available supply.
 
 ## 5. Parameter Calibration
 
