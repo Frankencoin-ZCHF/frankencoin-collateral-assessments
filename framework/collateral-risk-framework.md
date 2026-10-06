@@ -56,7 +56,7 @@ The existence of a liquid marketplace is however not a strict requirement. Illiq
 
 - **Strong**: There is a liquid market with regular trading activity, allowing challengers to reliably estimate the proceeds an auction could achieve.
 
-- **Sufficient**: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in a more conservative reserve ratio and liquidation price.
+- **Sufficient**: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in a more conservative retained reserve and liquidation price.
 
 - **Insufficient**: There is no reliable way for potential challengers to estimate a potential auction outcome. The token should therefore not be accepted as collateral.
 
