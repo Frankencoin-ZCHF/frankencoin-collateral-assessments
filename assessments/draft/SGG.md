@@ -69,8 +69,6 @@
 
 SGG is a tokenized gold product issued by Swissgrams AG in Zug, Switzerland. Each SGG represents one troy ounce of gold content in physical sovereign coins stored in Switzerland. Eligible reserve coins include 1 oz American Gold Eagles, Maple Leafs, Vienna Philharmonics, Britannias and Kangaroos. Tokens are only released into circulation against a matching deposit of coins into the reserve.
 
-The gold is held fully segregated, outside the banking system, at Helveticor AG's high-security vault in Zurich. Swissgrams publishes Helveticor's physical inventory report on its website on a daily basis and commits to an annual third-party audit of the reserve. Legally, each SGG is structured as a co-ownership title in the coin reserve, not as an unsecured claim against the issuer. Holders therefore retain a segregation claim if Swissgrams AG becomes insolvent.
-
 The underlying exposure is high-quality and relatively low-volatility. Compared with other tokenized gold products, SGG has a strong Swiss-law structure and a direct physical redemption path from a single ounce. The main risks are issuer/custody execution, smart-contract/admin functionality, and limited initial liquidity.
 
 The proposed 25% retained reserve addresses ordinary gold-price volatility and liquidation execution risk. The proposed 250,000 ZCHF global minting limit and 2.0% target interest rate are the main safeguards against the wrapper-specific tail risks.
