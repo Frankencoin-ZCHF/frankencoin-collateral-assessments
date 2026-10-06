@@ -41,28 +41,12 @@
           "compensation": "0.5%"
         }
       ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
       "liquidity_risks": [
         {
           "name": "Secondary Market Liquidity & Minting/Redemption Impairment",
           "probability": "Low",
           "severity": "Severe",
           "compensation": "0.5%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "n/a",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
         }
       ]
     }
@@ -83,25 +67,19 @@
 
 ## Summary
 
-XAUH is a tokenized gold product issued by Herculis Tokens SA. Each XAUH token represents exposure to one gram of Swiss-stored LBMA 999.9 physical gold.
+XAUH is a tokenized gold product issued by Herculis Tokens SA. Each XAUH token represents exposure to one gram of Swiss-stored LBMA 999.9 physical gold. Herculis describes the asset as backed by Swiss-stored, insured, and audited gold, with regular custody attestation by KPMG Switzerland. XAUH also exists on other networks, including TON and TRON. From a minimum of 500 XAUH, physical redemptions are possible for KYC-ed holders at a 3% redemption fee plus applicable transportation and insurance costs.
 
-The underlying RWA exposure is gold, which is a high-quality collateral asset with low expected market volatility.
+The underlying exposure is high-quality and relatively low-volatility, but XAUH is still a small tokenized wrapper with issuer, custody, admin-control, and liquidity tail risks. Herculis Tokens SA is incorporated in Panama as a subsidiary of Herculis Group, a Swiss Wealth Management & Asset Protection boutique founded in 2009.
 
-XAUH, however, is a tokenized-gold wrapper with a limited track record. Therefore, an initial global minting limit of ZCHF 250,000 and an interest rate of 2.5% are applied to contain the exposure and compensate FPS holders for the associated tail risks. 
-
-## Introduction
-
-XAUH is an ERC-20 token that gives holders exposure to physical gold. Herculis describes the asset as backed by Swiss-stored, insured, and audited LBMA 999.9 gold, with regular custody attestation by KPMG Switzerland. XAUH also exists on other networks, including TON and TRON. From a minimum of 500 XAUH, physical redemptions are possible for KYC-ed holders at a 3% redemption fee plus applicable transportation and insurance costs.
-
-Herculis Tokens SA is incorporated in Panama as a subsidiary of Herculis Group, a Swiss Wealth Management & Asset Protection boutique founded in 2009, and aims to offer a more transparent and secure way for investors to participate in the gold market without the frictions typically associated with traditional gold investments.
+The proposed 25% retained reserve addresses ordinary gold-price volatility and liquidation execution risk. The proposed 250,000 ZCHF global minting limit and 2.5% target interest rate are the main safeguards against the wrapper-specific tail risks.
 
 ## Free Float/Liquidity
 
 Classification: Sufficient
 
-XAUH currently has a highly concentrated holder distribution on Ethereum: around 86% of supply is held in a single issuer-controlled address, while roughly 9% sits in the Uniswap pool. Over the coming weeks, Herculis plans to expand Uniswap liquidity, add Ethereum XAUH support to the existing Biconomy and BTSE listings, and integrate Ethereum XAUH with its live merchant/on-ramp integrations such as ChangeNOW, Changelly and Wert. The holder distribution is expected to improve as soon as these listings and integrations are finalised.
+XAUH currently has a highly concentrated holder distribution on Ethereum: around 78% of supply is held in a single issuer-controlled address, while roughly 17% sits in the Uniswap pool. Over the coming weeks, Herculis plans to expand Uniswap liquidity, add Ethereum XAUH support to the existing Biconomy and BTSE listings, and promote the Ethereum version with its merchant integrations such as ChangeNOW, Changelly and Wert. The holder distribution is expected to improve as these listings and integrations progress.
 
-Importantly, XAUH also has a documented primary-market minting mechanism. KYC-approved customers can request new issuance either by contributing eligible physical gold or by transferring FIAT for newly issued XAUH. The free float is therefore considered sufficient for now, and is expected to become stronger when the planned listings and integrations are finalised.
+Importantly, XAUH also has a documented primary-market minting mechanism. KYC-approved customers can request new issuance either by contributing eligible physical gold or by transferring FIAT for newly issued XAUH.
 
 ## Public Information
 
@@ -123,83 +101,47 @@ To account for ordinary gold-price volatility over 96h, the 2% challenger reward
 
 ### Counterparty Risk: Herculis Group
 
-Description: XAUH depends on Herculis as issuer, the custody of the underlying gold, and the operational process linking the token to the physical gold.
-
-Probability: Low
+Likelihood: Medium
 
 Severity: Severe
 
 Compensation: 1.00%
 
-XAUH is a tokenized wrapper whose value depends on the issuer, custody structure, reserve documentation, redemption process, and market confidence.
-
-A failure in any of these components could impair the token relative to the underlying gold price. This risk is higher than for larger tokenized-gold products with longer operating histories, and the token could depeg more significantly from the underlying gold price in such a scenario. A 1.00% compensation is therefore assigned for issuer, custody, and redemption dependency.
+Assessment: XAUH is a tokenized wrapper whose value depends on Herculis as issuer, the custody of the underlying gold, the redemption process, and market confidence. A failure in any of these components could impair the token relative to the underlying gold price. This risk is higher than for larger tokenized-gold products with longer operating histories, and the token could depeg more significantly from the underlying gold price in such a scenario. A 1.00% compensation is therefore assigned for issuer, custody, and redemption dependency.
 
 ### Smart Contract Risk: Smart-Contract Exploit
 
-Description: XAUH depends on an upgradeable Ethereum token contract with issuer-admin functionality.
-
-Probability: Low
+Likelihood: Very Low
 
 Severity: Critical
 
 Compensation: 0.50%
 
-The Ethereum token contract is an upgradeable proxy and includes administrative controls. Reviewed functionality indicates controls such as freeze, unfreeze, wipe of frozen addresses, pause, unpause, supply adjustment, supply-controller assignment, asset-protection role assignment, and fee-controller functions.
-
-Such controls are common for centrally issued RWA tokens, but they introduce dependency on correct administration, secure key management, and predictable issuer behaviour. A contract-level issue, malicious upgrade, compromised admin key, pause, freeze, wipe, or supply-control error could impair transferability, settlement, or liquidation proceeds. A 0.5% compensation is assigned for smart-contract risk.
+Assessment: XAUH depends on an upgradeable Ethereum token contract with issuer-admin functionality. Reviewed functionality indicates controls such as freeze, unfreeze, wipe of frozen addresses, pause, unpause, supply adjustment, supply-controller assignment, asset-protection role assignment, and fee-controller functions. Such controls are common for centrally issued RWA tokens, but they introduce dependency on correct administration, secure key management, and predictable issuer behaviour. A contract-level issue, malicious upgrade, compromised admin key, pause, freeze, wipe, or supply-control error could impair transferability, settlement, or liquidation proceeds. A 0.50% compensation is assigned for smart-contract risk.
 
 ### Governance Risk: Issuer/admin-control and custody intervention risk
 
-Description: XAUH is a centrally issued tokenized commodity and thus carries issuer-admin, address-blocking, and government intervention risk.
-
-Probability: Low
-
-Severity: Severe
-
-Compensation: 0%
-
-XAUH is centrally issued and backed by physical gold held in custody. The token contract includes address-level blocking controls, including functions to add or remove addresses from a blocked list, check whether an address is blocked, and destroy funds held by a blocked address.
-
-Because the underlying gold is stored physically in identifiable custody arrangements, legal, regulatory, or administrative intervention could also impair redemption, secondary-market confidence, or the economic link between XAUH and physical gold. This is captured under governance/admin-control risk for consistency with other tokenized off-chain assets. A 0.50% compensation is assigned for this residual risk.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned in the current classification.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-Legal and operational considerations are mainly captured through counterparty/custody risk and governance/admin-control risk. No additional standalone legal-risk premium is assigned to avoid double-counting.
-
-### Liquidity Risk: Secondary Market Liquidity & Minting/Redemption Impairment
-
-Description: Ethereum XAUH liquidity is limited, and the holder base currently very concentrated.
-
-Probability: Medium
+Likelihood: Low
 
 Severity: Severe
 
 Compensation: 0.50%
 
-The practical Ethereum liquidity source is currently the Uniswap pool as well as the direct minting/redemption path.
+Assessment: XAUH is issued by Herculis Tokens SA, while the underlying physical gold is held in custody in Switzerland. Herculis Tokens SA is incorporated in Panama and reports to the local regulator. This creates a governance/admin-control risk because the regulator could require the issuer to freeze or restrict operations.
 
-This means that a Frankencoin liquidation could face a meaningful discount, as arbitrageurs would apply a haircut due to the limited possibility to sell the tokens on Uniswaps for a profit right away, and additional costs and frictions for primary market redemptions. A 0.50% compensation is assigned for liquidity risk.
+The token contract also includes address-level blocking controls, including functions to add or remove addresses from a blocked list, check whether an address is blocked, and destroy funds held by a blocked address. These controls are not unusual for centrally issued RWA tokens, but they create a residual governance/admin-control risk for Frankencoin liquidations. A 0.50% compensation is assigned for this risk.
 
-### Contagion Risk: n/a
+### Liquidity Risk: Secondary Market Liquidity & Minting/Redemption Impairment
 
-Description: No separate contagion-risk premium is assigned.
+Likelihood: Low
 
-Probability: Negligible
+Severity: Severe
 
-Severity: n/a
+Compensation: 0.50%
 
-Compensation: 0%
+Assessment: Ethereum XAUH liquidity is limited, and the holder base is currently highly concentrated. The practical Ethereum liquidity sources are the Uniswap pool and the direct minting/redemption path. In a Frankencoin liquidation, the unavailability of these paths could delay the challenge process because potential challengers may not be able to acquire or recycle sufficient XAUH quickly and at a predictable price.
 
-No separate contagion-risk premium is assigned as XAUH does not depend on crypto markets and has no other Defi integrations.
+The exit path after a successful challenge could also be impaired. A challenger may face limited immediate secondary-market depth and may need to rely on primary-market redemption, which can involve KYC, minimum redemption sizes, redemption fees, delivery costs, and timing frictions. Arbitrageurs would therefore likely apply a significant haircut to compensate for delayed exit, limited executable liquidity, and redemption uncertainty. A 0.50% compensation is assigned for this risk.
 
 ## Conclusion
 
