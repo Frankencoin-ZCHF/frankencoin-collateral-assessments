@@ -77,11 +77,11 @@ The proposed 25% retained reserve addresses ordinary gold-price volatility and l
 
 Classification: Sufficient
 
-XAUH currently has a highly concentrated holder distribution on Ethereum: around 78% of supply is held in a single issuer-controlled address, while roughly 17% sits in the Uniswap pool. Over the coming weeks, Herculis plans to expand Uniswap liquidity, add Ethereum XAUH support to the existing Biconomy and BTSE listings, and promote the Ethereum version with its merchant integrations such as ChangeNOW, Changelly and Wert. The holder distribution is expected to improve as these listings and integrations progress.
+XAUH currently has a total supply of $538,000 on Ethereum with a rather concentrated holder distribution: around 78% of supply is held in a single issuer-controlled address, while roughly 17% sits in the Uniswap pool. Over the coming weeks however, Herculis plans to expand Uniswap liquidity, add Ethereum XAUH support to the existing Biconomy and BTSE listings, and include the Ethereum version with its merchant network such as ChangeNOW, Changelly and Wert. The holder distribution is expected to improve as these listings and integrations progress.
 
 Importantly, XAUH also has a documented primary-market minting mechanism. KYC-approved customers can request new issuance either by contributing eligible physical gold or by transferring FIAT for newly issued XAUH.
 
-Based on these characteristics, a 250,000 ZCHF minting limit is reasonable.
+Based on this, a 250,000 ZCHF minting limit seems reasonable.
 
 ## Public Information
 
