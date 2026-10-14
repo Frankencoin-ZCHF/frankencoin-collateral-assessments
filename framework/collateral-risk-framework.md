@@ -1,6 +1,6 @@
 # Collateral Risk Framework
 
-**Version:** 1.4 Live Version
+**Version:** 1.5 Live Version
 **Date:** October 2026  
 **Author:** Paolo Di Stefano, Frankencoin Association  
 
@@ -56,7 +56,7 @@ The existence of a liquid marketplace is however not a strict requirement. Illiq
 
 - **Strong**: There is a liquid market with regular trading activity, allowing challengers to reliably estimate the proceeds an auction could achieve.
 
-- **Sufficient**: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in a more conservative retained reserve and liquidation price.
+- **Sufficient**: There is little or no observable trading activity, but enough information about the collateral is available for challengers to estimate the expected auction outcome. This is sufficient, but should be reflected in the retained reserve and liquidation price.
 
 - **Insufficient**: There is no reliable way for potential challengers to estimate a potential auction outcome. The token should therefore not be accepted as collateral.
 
@@ -85,32 +85,32 @@ This means that liquidations caused by ordinary market risk should typically cle
 Where a reliable price history is available, and returns are close to being normally distributed, market risk should be assessed using a 99% VaR estimate over twice the auction duration. An additional 2% buffer to account for the challenger reward shall then be added to establish the minimum retained reserve requirement, representing the percentage of minted ZCHF allocated to the minter reserve:
 
 <p align="center">
-  <strong>Retained Reserve = VaR<sub>99%</sub>(2 × Auction Duration) + 2%</strong>
+  <strong>Retained Reserve ≥ VaR<sub>99%</sub>(2 × Auction Duration) + 2%</strong>
 </p>
 
 For assets without normally distributed returns, the maximum drawdown over the same horizon should be used instead, again adding the 2% buffer for the challenger reward:
 
 <p align="center">
-  <strong>Retained Reserve = MDD(2 × Auction Duration) + 2%</strong>
+  <strong>Retained Reserve ≥ MDD(2 × Auction Duration) + 2%</strong>
 </p>
 
-When no reliable price history is available, market risk should be assessed on a case-by-case basis using comparable assets or other appropriate methodologies. As the number of collateral assessments for such assets grows, this framework should be expanded to capture practical insights and improve consistency among asset classes.
+The relevant consideration in a liquidation scenario is recoverable value rather than historical price fluctuations alone. A stressed price implied by historical price data may differ from the price that can actually be realized during liquidation. The retained reserve should therefore be rounded up to the next 5 percentage points and increased further where liquidation relies on arbitrageurs and market depth may be insufficient to absorb the collateral without additional price impact.
+
+When no reliable price history or market price is available, the appropriate liquidation price and market risk should be assessed on a case-by-case basis using comparable assets or other appropriate methodologies. Any resulting estimate is inherently more uncertain and should therefore be based on conservative assumptions about recoverable value.
 
 ### 4.2 Tail Risk
 
 Tail risks can cause collateral values to decline beyond ordinary market movements and may therefore exceed what the first line of defence can absorb. Where such risks exist, the equity pool is at risk. FCS holders should therefore be compensated through an appropriate risk premium. At the same time, exposure to tail risks beyond a certain probability threshold should be limited to ensure that potential losses remain fully absorbable by the second line of defence.
 
-In the context of Frankencoin, the most relevant collateral tail risks can be grouped into four categories:
+In the context of Frankencoin, the most relevant collateral tail risks can be grouped into three categories:
 
 - **Counterparty risk**: The collateral depends on the solvency, integrity, or operational reliability of an issuer, sponsor, custodian, or other identifiable counterparty.
 
-- **Smart-contract risk**: The collateral, its wrapper, or its redemption mechanism depends on smart contracts, bridges, or other blockchain infrastructure that may contain bugs, design flaws, oracle failures, upgrade risks, or integration risks.
+- **Smart-contract risk**: The collateral, its wrapper, or its minting and redemption mechanism depends on smart contracts, bridges, or other blockchain infrastructure that may contain bugs, design flaws, oracle failures, upgrade risks, or integration risks.
 
 - **Governance risk**: The collateral can be frozen, blacklisted, diluted, paused, upgraded, reconfigured, restricted, or otherwise impaired by a governance body, regulator, government authority, or someone with admin-control. This includes legal or regulatory actions where they affect the collateral through such control mechanisms.
 
-- **Liquidity risk**: The collateral may be difficult to acquire, sell, or redeem in sufficient amounts during stress, especially if liquidity depends on a single marketplace or mint-and-redeem path that may become temporarily unavailable.
-
-Tail risks usually cannot be assessed using the collateral’s own price history alone, but require a thorough understanding of the asset’s characteristics, control mechanisms, and exit paths. Once identified, it should be assessed whether:
+Tail risks usually cannot be assessed using the collateral’s own price history alone, but require a thorough understanding of the asset’s technical architecture, legal structure, governance dependencies, and redemption mechanics. Once identified, each tail risk should be assessed to determine whether:
 
   i) the tail risk is acceptable,
 
@@ -148,7 +148,7 @@ Severity should be classified using one of the following categories:
 
 The required compensation for FCS holders can then be calculated by multiplying each tail risk’s probability with its expected severity. This will inform the risk premium required to reach the appropriate effective interest rate.
 
-Let C<sub>i</sub> denote the required compensation for tail-risk event i. Let P<sub>i</sub> ∈ [0.5%, 5%] denote the estimated annual probability of that event, and let S<sub>i</sub> ∈ {25%, 50%, 100%} denote its severity category: moderate, severe, or critical. The required compensation for event i is then C<sub>i</sub> = P<sub>i</sub> × S<sub>i</sub>. Summing this across all identified tail risks, the effective annual interest rate should be given as follows:
+Let C<sub>i</sub> denote the required compensation for tail-risk event i, P<sub>i</sub> its estimated annual probability, and S<sub>i</sub> ∈ {25%, 50%, 100%} its severity category: moderate, severe, or critical. The required compensation for event i is then C<sub>i</sub> = P<sub>i</sub> × S<sub>i</sub>. Summing this across all identified tail risks, the effective annual interest rate should be given as follows:
 
 <p align="center">
   <strong>Effective Interest = Σ<sub>i</sub> C<sub>i</sub> = Σ<sub>i</sub> (P<sub>i</sub> × S<sub>i</sub>)</strong>
@@ -158,7 +158,7 @@ Let C<sub>i</sub> denote the required compensation for tail-risk event i. Let P<
 
 Besides determining the interest rate, tail risks should also inform the global minting limit to ensure that any single plausible tail-risk event does not threaten the system’s survival. This means that for each identified tail risk with at least a medium probability assigned, the withdrawable amount, corresponding to the global minting limit without the retained reserve, should remain significantly below the equity capital at stake.
 
-When the same tail risk already affects another active collateral, for example because the counterparty is the same, this equation should hold true for their combined global minting limit.
+When the same tail risk affects multiple active collateral types, for example because they depend on the same counterparty, their combined exposure should be considered when determining the global minting limit.
 
 The global minting limit should also be calibrated in relation to the collateral’s available free float. Even if the full minting limit is used and the corresponding collateral is locked in the protocol, enough collateral should remain accessible outside the protocol for challengers to acquire it and initiate liquidations.
 
@@ -190,4 +190,4 @@ Collateral risk management should follow a consistent logic across collateral as
 
 Sufficient free float enables timely challenges, and the availability of public information allows challengers to assess expected auction outcomes. Both are essential collateral requirements. 
 
-Liquidations may arise from ordinary market risk or from tail risk scenarios. Price declines from ordinary market risk should typically be absorbable by the first line of defence, while losses from tail-risk scenarios above a certain probability threshold should be absorbable by the second line of defence to ensure the system’s survival, and FCS holders should be compensated for the capital at stake.
+Liquidations may arise from ordinary market risk or from tail-risk scenarios. Losses from ordinary market risk should typically be absorbable by the first line of defence. Losses from material tail-risk scenarios should remain absorbable by the second line of defence to protect the system’s survival, while FCS holders should be appropriately compensated for the capital at risk.
