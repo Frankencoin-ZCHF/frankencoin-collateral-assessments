@@ -1,12 +1,12 @@
 ---
 {
-  "asset_name": "Coinbase Wrapped BTC",
+  "asset_name": "Coinbase Wrapped Bitcoin",
   "asset_ticker": "cbBTC",
   "contract_address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
-  "assessment_date": "2026-08-01",
+  "assessment_date": "2026-11-03",
   "author": "Paolo Di Stefano",
   "links": {
-    "etherscan": "https://etherscan.io/token/0xA4158e4feF15Bda281695FcAC00BBf095cDA0f9A",
+    "etherscan": "https://etherscan.io/address/0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
     "coingecko": "https://www.coingecko.com/en/coins/coinbase-wrapped-btc",
     "website": "https://www.coinbase.com/cbbtc",
     "docs": "https://resources.cryptocompare.com/asset-management/16852/1726235547660.pdf",
@@ -20,9 +20,9 @@
       "counterparty_risks": [
         {
           "name": "Coinbase",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
+          "probability": "Very Low",
+          "severity": "Severe",
+          "compensation": "0.25%"
         }
       ],
       "smart_contract_risks": [
@@ -35,44 +35,19 @@
       ],
       "governance_risks": [
         {
-          "name": "Freezing",
+          "name": "Admin-Control",
           "probability": "Very Low",
-          "severity": "Severe",
-          "compensation": "0.25%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "n/a"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Redemption Failure",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "n/a"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "Systemic crypto-market contagion",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0.00%"
+          "severity": "Critical",
+          "compensation": "0.50%"
         }
       ]
     }
   },
   "risk_parameters": {
     "retained_reserve": 0.20,
-    "target_interest_rate": 0.005,
-    "global_minting_limit": null,
-    "liquidation_price": 45000,
-    "maturity": null,
+    "target_interest_rate": 0.01,
+    "global_minting_limit": "no limit",
+    "maturity": "3 years",
     "auction_duration": 24,
     "minimum_collateral": 0.10
   }
@@ -83,112 +58,66 @@
 
 ## Summary
 
-Coinbase Wrapped BTC is a high-quality collateral candidate, issued by a highly reputable counterparty and with limited smart-contract risk.
+cbBTC is Coinbase's ERC-20 representation of Bitcoin. It is a strong collateral candidate because it provides liquid BTC exposure on Ethereum, while the proposed 20% retained reserve exceeds the observed worst 48-hour close-to-close drawdown.
 
-The main residual risks are not related to Bitcoin itself, but to the wrapper structure: Coinbase redemption availability, freezing rights, and residual smart-contract risk.
+The residual risks arise from Coinbase's custody, issuance and redemption role, the token-contract architecture, and Coinbase-controlled admin functions.
 
-## Introduction
+## Asset Overview
 
-cbBTC is Coinbase’s wrapped Bitcoin token. Each cbBTC is backed with BTC in Coinbase custody.
+cbBTC represents BTC held in Coinbase custody and is issued for use across Ethereum-compatible applications. The collateral exposure is therefore primarily Bitcoin market risk, with an additional centralised-wrapper layer: Coinbase controls issuance and redemption and the Ethereum token is implemented through an upgradeable FiatToken proxy architecture.
 
-It is designed to represent Bitcoin in ERC-20 form and allows BTC exposure to be used across Ethereum-compatible DeFi applications.
-
-## Free Float/Liquidity
+## Free Float
 
 Classification: Strong
 
-cbBTC is one of the most liquid ERC-20 BTC wrappers, with high trading volumes, trading on Coinbase, and several large pools across decentralized exchanges Uniswap and Curve.
+cbBTC has broad market access through Coinbase and established decentralised-exchange liquidity. Independent challengers and auction buyers can acquire and sell the token without relying on a single bilateral counterparty.
 
 ## Public Information
 
 Classification: Strong
 
-Public information is strong as there are several highly liquid secondary markets, meaning potential auction outcomes can easily be assessed.
+BTC has deep and transparent global markets, while cbBTC has public contract information, observable secondary-market pricing and Coinbase reserve disclosures. Challengers can reasonably estimate auction outcomes.
 
 ## Market Risk
 
 99%-VaR, 48h close-to-close: 8.11%
 
-Maximum Drawdown, 48h close-to-close: 16.68%: 16.24%
+Worst historical 48h close-to-close drawdown: 16.24%
 
-The Maximum Drawdown over 48 hours over the last 2 years of trading data from Yahoo, measured close-to-close, was 16.24%.
-
-This means a retained reserve of 20% is sufficient to cover ordinary BTC market volatility and account for the challenger reward during a liquidation.
+The metrics use two years of daily close data. A 20% retained reserve exceeds the observed worst 48-hour drawdown and provides additional room for challenger reward and auction execution.
 
 ## Tail Risks
 
 ### Counterparty Risk: Coinbase
 
-Description: cbBTC depends on Coinbase for custody, issuance, and redemption. This creates a centralized counterparty dependency. 
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-Coinbase is among the most reputable crypto exchanges, and is a regulated public entity. Therefore, the counterparty risk is classified as negligible, requiring no compensation.
-
-### Smart Contract Risk: Smart-Contract Exploit
-
-Description: cbBTC is an ERC-20 token and therefore carries residual smart-contract risk. A contract exploit or severe bridging failure could potentially lead to a depeg, though this is highly unlikely.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Severe
 
 Compensation: 0.25%
 
-The probability appears very low, but the severity could be material if the contract were impaired.
+cbBTC depends on Coinbase for BTC custody, issuance and redemption. A Coinbase operational, custody or redemption disruption could impair recoverable value even if BTC itself remains valuable.
 
-### Governance Risk: Freezing
+### Smart-Contract Risk: Smart-Contract Exploit
 
-Description: Coinbase has admin controls that would allow them to step in and freeze cbBTC for compliance reasons, for example because of a US government request.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Severe
 
 Compensation: 0.25%
 
-This is the main wrapper-specific risk. Even if the underlying BTC remains fully backed, a freeze or restriction could delay liquidation.
+cbBTC uses an upgradeable FiatToken proxy and a FiatTokenV2_1 implementation. The implementation includes standard ERC-20 functions, permit and authorisation functions, and privileged minting, burning, pausing and blacklisting functionality. These controls are expected for a centrally issued BTC wrapper; the technical premium covers an exploit, proxy or implementation failure that independently impairs token balances or transferability.
 
-### Legal Risk: n/a
+### Governance Risk: Admin-Control
 
-Description: No separate legal-risk premium is assigned. Legal and regulatory risks are mainly captured through the Coinbase counterparty and freezing/admin-control risks.
+Likelihood: Very Low
 
-Probability: n/a
+Severity: Critical
 
-Severity: n/a
+Compensation: 0.50%
 
-Compensation: n/a
-
-### Liquidity Risk: Redemption Failure
-
-Description: Liquidity is very high, but redemptions (withdrawing regular BTC) are only possible through Coinbase.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: n/a
-
-cbBTC benefits from Coinbase support and deep BTC liquidity. There could however be stress if Coinbase fails to process redemptions of users wanting to withdraw regular BTC. Again, since Coinbase is a highly reputable counterparty, this does not warrant any compensation.
-
-### Contagion Risk: Systemic crypto-market contagion
-
-Description: A severe crypto-market stress event could affect Bitcoin, Coinbase, major liquidity venues, and DeFi markets at the same time.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0.00%
-
-Even during severe market stress events like 10/10/2025, the liquidation cascades/flash crashes didn't impair assets like cbBTC beyond the assigned market risk, and Coinbase continued operating without any issues. Hence, no separate compensation is needed. 
+Privileged roles can blacklist and unblacklist addresses, pause and unpause the token, configure or remove minters, update role holders, and upgrade the proxy implementation. A realised address-level blacklist, transfer restriction or malicious/compromised upgrade could make collateral unrecoverable.
 
 ## Conclusion
 
-cbBTC is a very strong collateral candidate for Frankencoin.
-
-The proposed retained reserve of 20% is appropriate relative to the observed 48h market-risk metric of 16.24%. The remaining risk premium is mainly driven by wrapper-specific risks, especially smart-contract risk and freezing/admin-control risk.
+The 20% retained reserve provides a reasonable buffer against the 16.24% worst historical 48h close-to-close drawdown. The 1.0% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; cbBTC’s high liquidity supports a 24-hour auction duration, and its established market position makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
