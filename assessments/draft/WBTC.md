@@ -3,7 +3,7 @@
   "asset_name": "Wrapped Bitcoin",
   "asset_ticker": "WBTC",
   "contract_address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
-  "assessment_date": "2026-08-01",
+  "assessment_date": "2026-11-03",
   "author": "Paolo Di Stefano",
   "links": {
     "etherscan": "https://etherscan.io/token/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
@@ -19,15 +19,15 @@
     "tail_risks": {
       "counterparty_risks": [
         {
-          "name": "BitGo + Merchant network",
-          "probability": "Very Low",
+          "name": "BitGo/BiT Global",
+          "probability": "Low",
           "severity": "Severe",
-          "compensation": "0.25%"
+          "compensation": "0.50%"
         }
       ],
       "smart_contract_risks": [
         {
-          "name": "Smart Contract Exploit",
+          "name": "Smart-Contract Exploit",
           "probability": "Very Low",
           "severity": "Severe",
           "compensation": "0.25%"
@@ -40,41 +40,15 @@
           "severity": "n/a",
           "compensation": "0%"
         }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "n/a"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Redemption Failure",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "Systemic crypto-market contagion",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
       ]
     }
   },
   "risk_parameters": {
-    "retained_reserve": 0.2,
-    "target_interest_rate": 0.005,
-    "global_minting_limit": null,
-    "liquidation_price": 45000,
-    "maturity": null,
-    "auction_duration": 24,
-    "minimum_collateral": 0.1
+    "retained_reserve": 0.20,
+    "target_interest_rate": 0.0075,
+    "global_minting_limit": "no limit",
+    "maturity": "3 years",
+    "auction_duration": 24
   }
 }
 ---
@@ -83,115 +57,66 @@
 
 ## Summary
 
-WBTC is a high-quality collateral candidate, primarily managed by BitGo, one of the largest BTC custodians in the space.
+WBTC is an ERC-20 representation of Bitcoin. It provides liquid BTC exposure on Ethereum, and the proposed 20% retained reserve provides a reasonable buffer above the 16.68% worst historical 48-hour close-to-close drawdown.
 
-The main risks are wrapper-specific: residual smart-contract risk and counterparty dependency of BitGo & connected merchants.
+The remaining risks arise from the custody and merchant model, the token contract, and the operational controls used to administer the wrapper.
 
+## Asset Overview
 
-## Introduction
+WBTC represents BTC held in custody and is issued on Ethereum through a custodian-and-merchant model. BitGo holds the underlying BTC, while approved merchants support the minting and redemption process. The collateral exposure is primarily Bitcoin market risk, with additional custody, redemption and token-contract dependencies.
 
-WBTC is an ERC-20 representation of Bitcoin on Ethereum. Each WBTC is intended to be backed 1:1 by BTC held in custody, allowing Bitcoin exposure to be used in Ethereum-based DeFi applications.
-
-The WBTC structure relies on a custodian-and-merchant model. BitGo acts as the primary custodian of the underlying BTC reserves, while approved merchants support the minting and burning process. Users who want to mint WBTC transfer BTC through an approved merchant, after which WBTC is minted on Ethereum. Conversely, WBTC can be burned through the merchant process to release the corresponding BTC.
-
-## Free Float/Liquidity
+## Free Float
 
 Classification: Strong
 
-WBTC has strong secondary-market liquidity and broad DeFi integration. It is one of the most established ERC-20 BTC wrappers and records very high trading volumes across major centralized and decentralized venues.
+WBTC has deep secondary-market liquidity and broad integration across centralised and decentralised venues. Independent challengers and auction buyers can acquire and sell the token without relying on a single marketplace.
 
 ## Public Information
 
 Classification: Strong
 
-Public information is strong as there are several highly liquid secondary markets, meaning potential auction outcomes can easily be assessed.
+WBTC tracks the price of BTC, publishes reserve and supply information, has a long operating history, and trades in transparent secondary markets. Challengers can reasonably assess the asset and auction outcomes.
 
 ## Market Risk
 
 99%-VaR, 48h close-to-close: 8.11%
 
-Maximum Drawdown, 48h close-to-close: 16.68%
+Worst historical 48h close-to-close drawdown: 16.68%
 
-The Maximum Drawdown over 48 hours over the last 2 years of trading data from Yahoo, measured close-to-close, was 16.68%.
-
-This means a retained reserve of 20% is sufficient to cover ordinary BTC market volatility and account for the challenger reward during a liquidation.
+The metrics use two years of daily close data. A 20% retained reserve exceeds the observed worst 48-hour drawdown and provides additional room for challenger reward and auction execution.
 
 ## Tail Risks
 
-### Counterparty Risk: BitGo + Merchant network
+### Counterparty Risk: BitGo/BiT Global
 
-Description: WBTC depends on its custody and merchant structure for minting, burning, and BTC backing.
+Likelihood: Low
 
-Probability: Very Low
+Severity: Severe
+
+Compensation: 0.50%
+
+WBTC depends on the combined BitGo, BiT Global and merchant custody/redemption structure. It is more operationally complex than a single-issuer wrapper such as cbBTC. A custody, operational or recovery failure could impair the recoverable value of WBTC even if Bitcoin itself remains valuable.
+
+### Smart-Contract Risk: Smart-Contract Exploit
+
+Likelihood: Very Low
 
 Severity: Severe
 
 Compensation: 0.25%
 
-The counterparty risk stems from the wrapper’s custody and operational dependencies. Because WBTC relies on a broader merchant network for minting and redemption, operational risk is marginally higher than for a single-issuer structure such as cbBTC. A 0.25% compensation therefore appears appropriate.
-
-### Smart Contract Risk: Smart-Contract Exploit
-
-Description: WBTC is implemented as an ERC-20 token and therefore carries residual contract-level risk.
-
-Probability: Very Low
-
-Severity: Severe
-
-Compensation: 0.25%
-
-WBTC is a mature and widely used contract, but technical risk cannot be eliminated completely. A 0.25% compensation seems appropriate.
+WBTC uses a mature, non-upgradeable ERC-20 contract. It includes mint, burn, global pause and unpause, finish-minting, ownership-transfer and token-recovery functions. These controls are expected for a centrally issued BTC wrapper. The technical premium covers an exploit or accounting failure that independently impairs balances or transferability.
 
 ### Governance Risk: Admin-Control
 
-Description: WBTC includes admin-controlled functions and depends on the operational governance of the WBTC custody and merchant structure. However, the contract does not include a specific address-level blacklist or freeze function comparable to cbBTC.
-
-Probability: Negligible
+Likelihood: Negligible
 
 Severity: n/a
 
 Compensation: 0%
 
-The main admin-control dependency is already captured under counterparty risk, because it relates to the same custody, minting, burning, and redemption structure. Since WBTC does not allow targeted address-level freezing, no additional governance-risk compensation is assigned to avoid double-counting.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned in the current classification.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: n/a
-
-Legal and regulatory considerations are partly captured through the broader counterparty and custody dependency of the wrapper. No standalone compensation is assigned here.
-
-### Liquidity Risk: Redemption or secondary-market liquidity impairment
-
-Description: WBTC liquidity depends on secondary-market depth and the continued functioning of redemption paths.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-WBTC is one of the most widely distributed and most liquid ERC-20 tokens, meaning that liquidity risk is negligible.
-
-### Contagion Risk: Systemic crypto-market contagion
-
-Description: WBTC remains exposed to broad crypto-market stress through the underlying BTC exposure and liquidity conditions.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-Even during severe market stress events like 10/10/2025, the liquidation cascades/flash crashes didn't impair assets like WBTC beyond the assigned market risk. Hence, no separate compensation is needed.
+The owner can pause and unpause transfers, control minting until minting is permanently finished, transfer ownership, and recover unrelated ERC-20 tokens sent to the contract. The contract has however no address-level blacklist, freeze or arbitrary holder-seizure function. A global pause alone does not warrant a separate governance premium.
 
 ## Conclusion
 
-WBTC is a very strong collateral candidate for Frankencoin.
-
-The proposed retained reserve of 20% is appropriate relative to the observed 48h market-risk metric of 16.81%. The remaining risk premium is mainly driven by wrapper-specific risks, especially smart-contract risk and counterparty dependency of BitGo & connected merchants.
+The 20% retained reserve provides a reasonable buffer against the 16.68% worst historical 48h close-to-close drawdown. The 0.75% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; WBTC’s high liquidity supports a 24-hour auction duration, and its established market position makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
