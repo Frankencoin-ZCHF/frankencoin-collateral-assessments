@@ -46,10 +46,9 @@
   "risk_parameters": {
     "retained_reserve": null,
     "target_interest_rate": null,
-    "global_minting_limit": null,
+    "global_minting_limit": "no limit",
     "maturity": null,
-    "auction_duration": null,
-    "minimum_collateral": null
+    "auction_duration": null
   }
 }
 ---
@@ -124,6 +123,4 @@ Compensation: [x% / n/a]
 
 ## Conclusion
 
-[Asset] is a [strong / credible / acceptable / higher-risk] collateral candidate for Frankencoin.
-
-The proposed retained reserve of [x]% is appropriate relative to the observed market-risk metric of [x]%. The remaining risk premium is mainly driven by [main tail risks]. 
+The [x]% retained reserve provides a reasonable buffer against the [x]% worst historical 48h close-to-close drawdown. The [x]% effective interest rate compensates the assessed tail risks. The framework [does / does not] require a cap on the global minting limit based on the tail risk analysis; [asset]'s [liquidity / Free Float] supports a [x]-hour auction duration, and [its established market position / appropriate rationale] makes a maturity of [x] reasonable before the collateral needs to be reassessed.
