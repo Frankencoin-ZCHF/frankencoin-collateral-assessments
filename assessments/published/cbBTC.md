@@ -119,4 +119,4 @@ Privileged roles can blacklist and unblacklist addresses, pause and unpause the 
 
 ## Conclusion
 
-The 20% retained reserve provides a reasonable buffer against the 16.24% worst historical 48h close-to-close drawdown. The 1.0% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; cbBTC’s high liquidity supports a 24-hour auction duration, and its established market position makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
+The 20% retained reserve provides a reasonable buffer against the 16.24% worst 48h close-to-close drawdown observed over the two-year assessment window. The 1.0% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; cbBTC’s high liquidity supports a 24-hour auction duration, and its established market position makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
