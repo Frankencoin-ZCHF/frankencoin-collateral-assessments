@@ -63,13 +63,13 @@ Residual tail risks arise from Liquid Collective's staking and withdrawal operat
 
 ## Asset Overview
 
-LsETH represents ETH staked through Liquid Collective. It uses an exchange-rate model under which each token represents an increasing claim on staked ETH as rewards accrue. The collateral exposure is staked ETH, with additional dependence on Liquid Collective's validator operations, withdrawal process and contract stack.
+LsETH represents ETH staked through Liquid Collective. It uses an exchange-rate model under which each token represents an increasing claim on staked ETH as rewards accrue. Liquid Collective is an institutionally oriented liquid staking protocol with a distributed operator set and public documentation. The collateral exposure is staked ETH, with additional dependence on Liquid Collective's validator operations, withdrawal process, contract stack and allowlist/denylist controls.
 
 ## Free Float
 
 Classification: Sufficient
 
-LsETH has observable secondary-market liquidity, but access at scale relies more heavily on a limited set of markets and the Liquid Collective redemption route than larger liquid staking tokens. Large auctions may therefore face greater slippage or withdrawal delays in stressed conditions.
+LsETH has meaningful circulating supply and observable secondary-market liquidity, but its market depth is materially lower than wstETH's. Access at scale relies more heavily on a limited set of markets and the Liquid Collective redemption route; transfers and redemptions are also subject to protocol allowlist/denylist controls. Large auctions may therefore face greater slippage or withdrawal delays in stressed conditions.
 
 ## Public Information
 
@@ -83,7 +83,7 @@ LsETH has observable secondary-market prices against ETH, giving challengers a b
 
 Worst 48h close-to-close drawdown observed over the two-year assessment window: 16.84%
 
-The 25% retained reserve exceeds the observed drawdown. The additional buffer reflects the Sufficient Free Float classification and the potential for execution slippage or withdrawal delays during stress.
+The 25% retained reserve exceeds the observed drawdown. The additional 5 percentage points above a 20% reserve reflect the Sufficient Free Float classification and the potential for execution slippage or withdrawal delays during stress.
 
 ## Tail Risks
 
@@ -105,7 +105,7 @@ Severity: Severe
 
 Compensation: 0.25%
 
-LsETH is issued through a TUPProxy pointing to the RiverV1 implementation. The stack supports deposits, redemption requests and claims, validator deposits and exchange-rate accounting. A technical failure in the implementation or its accounting and withdrawal logic could independently impair recoverability.
+LsETH is issued through a TUPProxy pointing to the RiverV1 implementation. The verified, public contract stack supports deposits, redemption requests and claims, validator deposits and exchange-rate accounting. A technical failure in the implementation or its accounting and withdrawal logic could independently impair recoverability.
 
 ### Governance Risk: Admin-Control
 
@@ -115,7 +115,7 @@ Severity: Critical
 
 Compensation: 0.50%
 
-The proxy exposes pause, unpause, admin-change and upgrade functions. RiverV1 also includes admin-configured oracle, redemption-manager, fee and protocol-parameter functions. These controls are expected for an institutionally operated liquid staking protocol, but a compromised or misused admin path could impair withdrawals, accounting or recoverability.
+The proxy admin can pause or unpause the system, change the proxy admin and upgrade the implementation. A pause blocks normal proxy calls, including transfers, approvals, deposits and redemption actions. RiverV1's allowlist rejects transfers to or from denied addresses; redemption requires an allowed requester and a non-denied recipient. The admin can replace the allowlist and set daily limits, fees and protocol addresses. A compromised or misused admin path could block transfers or redemptions, or change protocol logic and accounting.
 
 ## Conclusion
 
