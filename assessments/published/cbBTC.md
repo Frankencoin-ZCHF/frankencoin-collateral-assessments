@@ -48,8 +48,7 @@
     "target_interest_rate": 0.01,
     "global_minting_limit": "no limit",
     "maturity": "3 years",
-    "auction_duration": 24,
-    "minimum_collateral": 0.10
+    "auction_duration": 24
   }
 }
 ---
