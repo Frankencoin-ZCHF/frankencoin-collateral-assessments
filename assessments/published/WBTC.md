@@ -57,13 +57,13 @@
 
 ## Summary
 
-WBTC is an ERC-20 representation of Bitcoin. It provides liquid BTC exposure on Ethereum, and the proposed 20% retained reserve provides a reasonable buffer above the 16.68% worst historical 48-hour close-to-close drawdown.
+WBTC is an ERC-20 representation of Bitcoin. It provides liquid BTC exposure on Ethereum, and the proposed 20% retained reserve provides a reasonable buffer above the 16.68% worst 48-hour close-to-close drawdown observed over the two-year assessment window.
 
-The remaining risks arise from the custody and merchant model, the token contract, and the operational controls used to administer the wrapper.
+The residual risks arise from the WBTC custody and redemption structure, the token-contract architecture, and the contract's admin functions.
 
 ## Asset Overview
 
-WBTC represents BTC held in custody and is issued on Ethereum through a custodian-and-merchant model. BitGo holds the underlying BTC, while approved merchants support the minting and redemption process. The collateral exposure is primarily Bitcoin market risk, with additional custody, redemption and token-contract dependencies.
+WBTC represents BTC held in custody by BitGo and BiT Global and is issued on Ethereum through a custodian-and-merchant model. Approved merchants support the minting and redemption process. The collateral exposure is primarily Bitcoin market risk, with additional custody, redemption and token-contract dependencies.
 
 ## Free Float
 
@@ -75,7 +75,7 @@ WBTC has deep secondary-market liquidity and broad integration across centralise
 
 Classification: Strong
 
-WBTC tracks the price of BTC, publishes reserve and supply information, has a long operating history, and trades in transparent secondary markets. Challengers can reasonably assess the asset and auction outcomes.
+WBTC publishes reserve and supply information, has a long operating history, and trades in transparent secondary markets. Challengers can reasonably assess the asset and auction outcomes.
 
 ## Market Risk
 
@@ -115,8 +115,8 @@ Severity: n/a
 
 Compensation: 0%
 
-The owner can pause and unpause transfers, control minting until minting is permanently finished, transfer ownership, and recover unrelated ERC-20 tokens sent to the contract. The contract has however no address-level blacklist, freeze or arbitrary holder-seizure function. A global pause alone does not warrant a separate governance premium.
+The owner can pause and unpause transfers, control minting until minting is permanently finished, transfer ownership, and recover unrelated ERC-20 tokens sent to the contract. The contract has no address-level blacklist, freeze or arbitrary holder-seizure function. A global pause alone does not warrant a separate governance premium.
 
 ## Conclusion
 
-The 20% retained reserve provides a reasonable buffer against the 16.68% worst historical 48h close-to-close drawdown. The 0.75% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; WBTC’s high liquidity supports a 24-hour auction duration, and its established market position makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
+The 20% retained reserve provides a reasonable buffer against the 16.68% worst 48h close-to-close drawdown observed over the two-year assessment window. The 0.75% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; WBTC’s high liquidity supports a 24-hour auction duration, and its established market position makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
