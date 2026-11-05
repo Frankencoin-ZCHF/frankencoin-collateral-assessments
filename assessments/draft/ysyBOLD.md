@@ -3,7 +3,7 @@
   "asset_name": "Staked yBOLD",
   "asset_ticker": "ysyBOLD",
   "contract_address": "0x23346B04a7f55b8760E5860AA5A77383D63491cD",
-  "assessment_date": "2026-08-01",
+  "assessment_date": "2026-11-05",
   "author": "Paolo Di Stefano",
   "links": {
     "etherscan": "https://etherscan.io/token/0x23346B04a7f55b8760E5860AA5A77383D63491cD",
@@ -15,72 +15,24 @@
   "risk_scores": {
     "public_information": "Strong",
     "free_float": "Strong",
-    "market_risk": "3.69%",
+    "market_risk": "4.37%",
     "tail_risks": {
       "counterparty_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
+        {"name": "Yearn", "probability": "Low", "severity": "Severe", "compensation": "0.50%"}
       ],
       "smart_contract_risks": [
-        {
-          "name": "Liquity V2",
-          "probability": "Low",
-          "severity": "Critical",
-          "compensation": "1.00%"
-        },
-        {
-          "name": "Yearn Vault contracts",
-          "probability": "Very Low",
-          "severity": "Critical",
-          "compensation": "0.50%"
-        }
+        {"name": "Liquity V2 / yBOLD", "probability": "Low", "severity": "Critical", "compensation": "1.00%"},
+        {"name": "Yearn Vault", "probability": "Very Low", "severity": "Critical", "compensation": "0.50%"}
       ],
-      "governance_risks": [
-        {
-          "name": "Yearn governance/admin-control risk",
-          "probability": "Low",
-          "severity": "Severe",
-          "compensation": "0.50%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Exit liquidity and unwind risk",
-          "probability": "Low",
-          "severity": "Severe",
-          "compensation": "0.50%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "n/a",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ]
+      "governance_risks": []
     }
   },
   "risk_parameters": {
     "retained_reserve": 0.10,
-    "target_interest_rate": 0.025,
-    "global_minting_limit": null,
-    "liquidation_price": null,
-    "maturity": null,
-    "auction_duration": 24,
-    "minimum_collateral": 7500
+    "target_interest_rate": 0.02,
+    "global_minting_limit": 1000000,
+    "maturity": "2 years",
+    "auction_duration": 24
   }
 }
 ---
@@ -89,128 +41,70 @@
 
 ## Summary
 
-ysyBOLD is the Yearn auto-compounding vault token for yBOLD. yBOLD tokenizes a BOLD position across Liquity V2 Stability Pools, while ysyBOLD compounds the resulting rewards through Yearn's ERC-4626 vault and strategy infrastructure.
+ysyBOLD is Yearn's auto-compounding vault token for yBOLD. yBOLD allocates BOLD across Liquity V2 Stability Pool strategies, while ysyBOLD holds yBOLD and compounds the resulting rewards through Yearn's tokenised-strategy infrastructure.
 
-ysyBOLD is an acceptable collateral candidate. The main risks are Liquity/BOLD smart-contract and protocol risk, Yearn vault/strategy smart-contract risk, Yearn governance and admin-control risk, and exit-liquidity risk through the ysyBOLD/yBOLD/BOLD unwind path.
+The 10% retained reserve provides a reasonable buffer above the 4.37% worst 48-hour close-to-close drawdown observed over the two-year assessment window. The residual risks are Yearn's central strategy controls and the layered Liquity V2, yBOLD and Yearn smart-contract stack that governs the collateral's value and exit path.
 
-## Introduction
+## Asset Overview
 
-Staked yBOLD (ysyBOLD) is an ERC-4626 Yearn vault token. It represents a staked position in yBOLD, whose value increases relative to yBOLD as Stability Pool rewards and interest income are harvested and compounded.
+Staked yBOLD is an ERC-4626-style Yearn TokenizedStrategy vault. It represents a staked position in yBOLD, whose value increases relative to yBOLD as Stability Pool rewards and interest income are harvested and compounded.
 
-yBOLD itself represents BOLD deposited across Liquity V2 Stability Pools. The relevant collateral exposure is therefore not a simple stablecoin wrapper. It is a layered position consisting of BOLD, Liquity V2 Stability Pool mechanics, Yearn vault/strategy contracts, and the operational process required to unwind the position.
+yBOLD is a Yearn vault over BOLD and currently allocates across Liquity V2 WETH, rETH and wstETH Stability Pool strategies. The relevant collateral exposure is therefore a layered position consisting of BOLD, Liquity V2 Stability Pool mechanics, yBOLD allocation logic and the ysyBOLD Yearn wrapper.
 
-## Free Float/Liquidity
+## Free Float
 
 Classification: Strong
 
-ysyBOLD is live on Ethereum and available through Yearn's interface. The underlying yBOLD exposure is designed to be redeemable for BOLD without a withdrawal fee or waiting period, and ysyBOLD can be redeemed for yBOLD through the Yearn vault mechanics under normal operating conditions.
+ysyBOLD has a permissionless on-chain exit path. Holders can redeem ysyBOLD for yBOLD through the Yearn vault, and yBOLD can be converted through its BOLD and Liquity strategy path. No centralised issuer, custodian, whitelist or single secondary-market operator is required for this conversion.
 
-From a Frankencoin liquidation perspective, the relevant exit path is ysyBOLD into yBOLD, then yBOLD/BOLD or the underlying Liquity Stability Pool position. As long as this redemption path works reliably, liquidity is strong thanks to BOLD's multiple on-chain DEX pools.
+Exit value and speed nevertheless depend on the yBOLD/Liquity strategy stack and available BOLD withdrawal liquidity. The 10% retained reserve reflects this layered exit path.
 
 ## Public Information
 
 Classification: Strong
 
-Public information is strong. The ysyBOLD price is always public as the vault is visible on yearn.fi, and the yBOLD strategy repository is public. The underlying BOLD stablecoin is listed across multiple DEXes.
+yBOLD and ysyBOLD are publicly visible through Yearn's interface and APIs, while the strategy code is public. BOLD also has observable pricing across on-chain markets. These sources give challengers a reliable basis to estimate expected auction outcomes.
 
 ## Market Risk
 
-MDD 48h / 99%-VaR 48h: <1% for BOLD/USD, 3.69% for USD/CHF
+Worst 48h close-to-close drawdown observed over the two-year assessment window: 4.37%
 
-Besides the FX risk between USD/CHF, the 48h market-risk metric is not the most relevant measure for ysyBOLD. The token is a yield-bearing ERC-4626 vault share whose price is expected to grow relative to yBOLD as rewards compound. BOLD has so far been able to maintain its peg to USD very well.
-
-The main collateral risk is therefore not ordinary spot-price volatility, but various tail risk scenarios discussed in the next section.
-
-A retained reserve of 10% is therefore sufficient to cover for expected market volatility of both BOLD and the underlying USD/CHF rate.
+ysyBOLD is a yield-bearing vault share whose value is intended to increase relative to yBOLD as rewards compound. The 10% retained reserve provides a reasonable buffer above the observed drawdown and for the layered exit path.
 
 ## Tail Risks
 
-### Counterparty Risk: n/a
+### Counterparty Risk: Yearn
 
-Description: No separate classic counterparty-risk premium is assigned.
+Likelihood: Low
 
-Probability: n/a
+Severity: Severe
 
-Severity: n/a
+Compensation: 0.50%
 
-Compensation: 0%
+The current `management` and `emergencyAdmin` roles are held by the Yearn Strategist MultiSig, a 3-of-6 Safe. Management can change the keeper, emergency administrator, pending management, performance-fee terms and strategy health-check configuration. It can also permanently shut the strategy, preventing new deposits and mints.
 
-ysyBOLD does not have a direct issuer or custodian, in the same way a centralized BTC, gold, or security-token wrapper would have.
+A compromised or malicious controller could disrupt strategy operations, impede reward harvesting or divert up to 50% of future profits through performance fees. It cannot directly confiscate yBOLD principal, freeze holders, pause transfers, upgrade the strategy at will, or use shutdown to block existing withdrawals or redemptions. This is therefore a centralised operational-control and future-yield risk, rather than a direct collateral-seizure or redemption-blocking risk.
 
-### Smart Contract Risk: Liquity V2
+### Smart-Contract Risk: Liquity V2 / yBOLD
 
-Description: ysyBOLD depends on Liquity V2, BOLD Stability Pools, liquidation mechanics, and indirectly of the soundness of the underlying liquid staking tokens wstETH and rETH.
-
-Probability: Low
+Likelihood: Low
 
 Severity: Critical
 
 Compensation: 1.00%
 
-This is the dominant technical risk layer. A severe issue in the BOLD or Liquity V2 Stability Pool stack could impair the underlying asset value, interrupt withdrawals, or create losses in the strategy's position. A 1.00% compensation is appropriate.
+A defect or exploit in Liquity V2 Stability Pool accounting, liquidation-offset mechanics, collateral-reward handling, oracle-dependent auctioning or yBOLD's multi-strategy allocation logic could impair yBOLD's BOLD value or delay conversion into BOLD. This risk passes directly through to ysyBOLD, whose only asset is yBOLD.
 
-### Smart Contract Risk: Yearn vault contracts
+### Smart-Contract Risk: Yearn Vault
 
-Description: ysyBOLD relies on Yearn's ERC-4626 vault infrastructure, tokenized strategy logic, reporting, harvesting, and auto-compounding mechanics.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Critical
 
 Compensation: 0.50%
 
-Yearn's vault infrastructure is mature, but ysyBOLD still adds a separate wrapper and strategy layer above yBOLD. A contract-level issue could impair wrapping, unwrapping, share-price accounting, or the strategy's ability to manage the underlying position. A 0.50% compensation is therefore appropriate.
-
-### Governance Risk: Yearn governance/admin-control risk
-
-Description: Yearn management or emergency-admin controls can affect the operation of the ysyBOLD wrapper.
-
-Probability: Low
-
-Severity: Severe
-
-Compensation: 0.50%
-
-The Yearn TokenizedStrategy framework includes emergency and management controls. Deposits can be shut down, the strategy can be paused, and emergency withdrawal functions can be used after pause or shutdown. Shutdown primarily blocks new deposits, while a full pause can interrupt user-facing ERC-4626 functions, including deposits, mints, withdrawals, and redeems. This is not classic issuer counterparty risk, but it is a real admin-control and governance dependency for Frankencoin liquidations.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-No separate legal-risk premium is assigned in the current classification.
-
-### Liquidity Risk: Exit liquidity and unwind risk
-
-Description: Liquidation depends on the practical exit path from ysyBOLD into yBOLD and then into BOLD.
-
-Probability: Low
-
-Severity: Severe
-
-Compensation: 0.50%
-
-Yearn governance actions could become a trigger for exit impairment. The relevant path is ysyBOLD to yBOLD, then yBOLD/BOLD liquidity or unwinding the underlying Stability Pool exposure. A 0.50% premium is appropriate for the current classification.
-
-### Contagion Risk: n/a
-
-Description: No separate contagion-risk premium is assigned.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-ysyBOLD can be affected by broader stress in DeFi, BOLD liquidity, Liquity V2, or ETH collateral markets, but these risks are already captured through the smart-contract risk and liquidity risk premia.
+A defect in Yearn's ERC-4626 accounting, share conversion, fee or profit-unlock logic, or ysyBOLD's reward-distribution path could misstate ysyBOLD's claim on yBOLD or impair normal wrapping and redemption. ysyBOLD holds yBOLD directly and receives distributed yBOLD rewards from the yBOLD accountant; it does not deploy yBOLD into a separate yield source.
 
 ## Conclusion
 
-ysyBOLD is an acceptable collateral candidate for Frankencoin.
-
-The proposed retained reserve is 10%. The target interest rate is 2.5%, driven by the layered protocol and wrapper risk profile: 1.0% for Liquity/BOLD smart-contract and protocol risk, 0.5% for Yearn smart-contract risk, 0.5% for Yearn governance/admin-control risk, and 0.5% for exit-liquidity risk.
+The 10% retained reserve provides a reasonable buffer against the 4.37% worst 48h close-to-close drawdown observed over the two-year assessment window. The 2.00% effective interest rate compensates the Yearn Strategist MultiSig control path and the Liquity V2/yBOLD and Yearn wrapper smart-contract risks. The 1,000,000 ZCHF global minting limit restricts the maximum withdrawable amount to 900,000 ZCHF. ysyBOLD's Strong Free Float supports a 24-hour auction duration, and a maturity of 2 years is reasonable before the collateral needs to be reassessed.
