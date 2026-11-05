@@ -3,19 +3,19 @@
   "asset_name": "SPDR S&P 500 ETF (Ondo Tokenized)",
   "asset_ticker": "SPYon",
   "contract_address": "0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
-  "assessment_date": "2026-08-01",
+  "assessment_date": "2026-11-04",
   "author": "Paolo Di Stefano",
   "links": {
     "etherscan": "https://etherscan.io/token/0xFeDC5f4a6c38211c1338aa411018DFAf26612c08",
     "coingecko": "https://www.coingecko.com/en/coins/spdr-s-p-500-etf-ondo-tokenized-etf",
     "website": "https://app.ondo.finance/assets/spyon",
     "docs": "https://docs.ondo.finance/ondo-stocks/overview",
-    "other": "https://ondo.finance/ondo-stocks"
+    "other": "https://docs.ondo.finance/ondo-stocks/trust-and-transparency"
   },
   "risk_scores": {
     "public_information": "Strong",
     "free_float": "Strong",
-    "market_risk": "3.38%",
+    "market_risk": "10.49%",
     "tail_risks": {
       "counterparty_risks": [
         {
@@ -35,46 +35,20 @@
       ],
       "governance_risks": [
         {
-          "name": "Transfer restrictions / admin Control",
-          "probability": "Low",
-          "severity": "Severe",
+          "name": "Admin-Control",
+          "probability": "Very Low",
+          "severity": "Critical",
           "compensation": "0.50%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "n/a"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Secondary-market or redemption impairment",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
         }
       ]
     }
   },
   "risk_parameters": {
-    "retained_reserve": 0.10,
+    "retained_reserve": 0.15,
     "target_interest_rate": 0.0125,
-    "global_minting_limit": null,
-    "liquidation_price": 500,
-    "maturity": null,
-    "auction_duration": 24,
-    "minimum_collateral": 10
+    "global_minting_limit": "no limit",
+    "maturity": "3 years",
+    "auction_duration": 24
   }
 }
 ---
@@ -83,116 +57,68 @@
 
 ## Summary
 
-SPYon is a tokenized representation of the SPDR S&P 500 ETF issued through Ondo’s tokenized-stock infrastructure. It gives holders economic exposure to SPY in ERC-20 form, allowing the asset to be used in DeFi while retaining exposure to a highly liquid and widely followed U.S. equity ETF.
+SPYon is Ondo Global Markets' tokenized exposure to the SPDR S&P 500 ETF. It provides ERC-20 exposure to SPY, while the 15% retained reserve provides a reasonable buffer above the 10.49% worst 48-hour close-to-close drawdown observed over the two-year assessment window.
 
-The main risks are not the S&P 500 exposure itself, but the wrapper structure: issuer dependency, admin controls, and residual smart-contract risk.
+Residual tail risks arise from the issuer and custody structure, the token contract stack, and issuer-controlled compliance and admin functions.
 
-## Introduction
+## Asset Overview
 
-SPYon represents tokenized exposure to the SPDR S&P 500 ETF. SPY is one of the largest and most liquid ETFs globally, tracking the S&P 500 index and hence providing diversified exposure to large-cap U.S. equities.
+SPYon is a structured note issued by Ondo Global Markets (BVI) Limited, rather than direct ownership of SPY shares. Ondo states that corresponding underlying securities and cash in transit are held through one or more US-registered custodial broker-dealers. Ankura Trust Company performs daily holdings attestations and holds a first-priority security interest in the collateral for tokenholders.
 
-The tokenized version introduces an additional RWA/security-token layer. The token is not only exposed to the ordinary price movement of SPY, but also to the operational and legal mechanics of the Ondo tokenized asset wrapper. These include the issuer structure, transferability, redemption access, and the ability to trade or redeem the token during stress.
+The token tracks SPY. Standard platform redemption is into USDon, or into USDC where the USDon/USDC swapper has sufficient liquidity. Redemption into underlying SPY shares is available through Alpaca's Instant Tokenization Network only to enabled authorised participants with linked Ondo and Alpaca accounts.
 
-## Free Float/Liquidity
+## Free Float
 
 Classification: Strong
 
-SPYon is one of the most liquid Ondo tokens, and Ondo's own interface taps directly into traditional SPY ETF liquidity. Besides Ondo's market place, the token is also listed on several centralized exchanges like Binance, Gate, MEXC, and BingX.
+SPY has deep, multi-venue liquidity and an established market. Ondo's issuance and redemption infrastructure connects SPYon economically to that underlying traditional-market liquidity. This does not give every holder direct access to SPY markets: standard redemption is into USDon or USDC, while delivery of SPY shares requires enabled authorised-participant status through Alpaca's Instant Tokenization Network. SPYon is transferable outside the United States subject to jurisdictional and other restrictions. Independent challengers and auction buyers can acquire and sell exposure without relying on a single marketplace, provided they satisfy Ondo's transfer and compliance requirements.
 
 ## Public Information
 
 Classification: Strong
 
-SPY has extensive public market data, meaning potential auction outcomes can easily be assessed.
+SPY has deep, efficient and continuously observable secondary-market pricing. This provides challengers with a reliable basis to estimate expected auction outcomes for SPYon. Ondo's public information on the issuer, collateral, redemption process and token contracts supplements that assessment.
 
 ## Market Risk
 
 99%-VaR, 48h close-to-close: 3.38%
 
-Maximum Drawdown, 48h close-to-close: 10.49%
+Worst 48h close-to-close drawdown observed over the two-year assessment window: 10.49%
 
-The 99%-VaR over the last 2 years is only 3.38%. This means a retained reserve of 10% is sufficient to cover ordinary market volatility and account for the challenger reward during a liquidation in at least 99% of scenarios.
+A 15% retained reserve provides a reasonable buffer above the observed drawdown and leaves room for the challenger reward.
 
 ## Tail Risks
 
 ### Counterparty Risk: Ondo Finance
 
-Description: SPYon depends on Ondo’s tokenized-asset issuance, redemption, operational, and custody structure.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Severe
 
 Compensation: 0.25%
 
-The underlying SPY ETF exposure is highly regulated and transparent, but SPYon remains a claim through a tokenized-security structure.
+SPYon depends on the issuer's continued performance of its structured-note obligations, custody arrangement and redemption process. Although Ankura verifies collateral daily and holds a security interest for tokenholders, an issuer, custody or redemption disruption could impair the recoverable value of SPYon relative to SPY.
 
-A counterparty, custody, or redemption disruption could impair the ability of liquidators to exit the collateral efficiently. A 0.25% compensation is therefore assigned to account for this residual issuer/wrapper dependency.
+### Smart-Contract Risk: Smart-Contract Exploit
 
-### Smart Contract Risk: Smart-Contract Exploit
-
-Description: SPYon is implemented as an ERC-20 token linked to a real-world asset off-chain, and therefore carries residual smart-contract risk.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Critical
 
 Compensation: 0.50%
 
-The probability of a major smart-contract issue appears very low, but the severity could be critical if the token contract or transfer mechanics were impaired.
+SPYon is a BeaconProxy using Ondo's upgradeable GMToken implementation. Its transfer hook applies pause and compliance checks to transfers, mints and burns. A technical failure in the token, compliance or pause-manager stack could independently impair balances, transferability or recoverability.
 
-Unlike a native asset, the collateral value depends on the underlying ETF exposure in custody and the correct representation of the tokenized wrapper, meaning that a technical issue could lead to unbacked tokens.
+### Governance Risk: Admin-Control
 
-### Governance Risk: Transfer restrictions / admin controls
+Likelihood: Very Low
 
-Description: SPYon is a tokenized security-style asset and should be assumed to carry transfer, compliance, redemption, or admin-control restrictions.
-
-Probability: Low
-
-Severity: Severe
+Severity: Critical
 
 Compensation: 0.50%
 
-SPYon is implemented through an upgradeable BeaconProxy and includes role-based administrative controls. Transfers are subject to compliance checks, and the token can be paused through a dedicated token pause manager. The compliance layer can reference blocklist and sanctions-list contracts. These controls introduce liquidation risk because transferability may depend on issuer-controlled compliance and pause mechanisms.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned in the current classification.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: n/a
-
-Legal and regulatory considerations are mainly captured through the counterparty and governance/admin-control risk categories. No additional standalone legal-risk premium is assigned to avoid double-counting.
-
-### Liquidity Risk: Secondary-market or redemption impairment
-
-Description: SPYon liquidity depends on both token-level secondary markets and the ability of eligible participants to access Ondo’s issuance and redemption mechanics.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-The underlying SPY ETF is highly liquid, the token is designed to reflect that traditional-market liquidity through Ondo's own interface, and is traded on multiple independent venues. This means no additional compensation is required.
-
-### Contagion Risk: n/a
-
-Description: No separate contagion-risk premium is assigned.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-SPYon is only exposed to broad equity-market stress through the underlying S&P 500 exposure, but should not be affected in crypto-market stress scenarios. That risk is captured in the market-risk reserve. No separate contagion premium is assigned under the current classification.
+Ondo-controlled admin and compliance functions can upgrade the token, pause transfers, and block sanctioned or blocklisted addresses. An assigned burner can burn tokens from an address. The SPYon used as collateral can therefore be frozen, effectively seized or destroyed, which could materially impair Frankencoin’s liquidation mechanism.
 
 ## Conclusion
 
-SPYon is a high-quality collateral candidate for Frankencoin.
-
-The underlying ETF exposure is high quality, liquid, and transparent. The key residual risks come from the tokenized-security wrapper: issuer dependency, admin controls, and residual smart-contract risk.
+The 15% retained reserve provides a reasonable buffer against the 10.49% worst 48h close-to-close drawdown observed over the two-year assessment window. The 1.25% effective interest rate compensates the assessed tail risks. The framework does not require a cap on the global minting limit based on the tail risk analysis; SPYon's Free Float supports a 24-hour auction duration, subject to buyers satisfying the applicable transfer and compliance requirements, and its established underlying market makes a maturity of 3 years reasonable before the collateral needs to be reassessed.
