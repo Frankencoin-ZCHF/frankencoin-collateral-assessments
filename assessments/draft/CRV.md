@@ -3,7 +3,7 @@
   "asset_name": "Curve DAO Token",
   "asset_ticker": "CRV",
   "contract_address": "0xD533a949740bb3306d119CC777fa900bA034cd52",
-  "assessment_date": "2026-08-01",
+  "assessment_date": "2026-11-05",
   "author": "Paolo Di Stefano",
   "links": {
     "etherscan": "https://etherscan.io/token/0xD533a949740bb3306d119CC777fa900bA034cd52",
@@ -17,64 +17,21 @@
     "free_float": "Strong",
     "market_risk": "33.81%",
     "tail_risks": {
-      "counterparty_risks": [
-        {
-          "name": "Curve ecosystem",
-          "probability": "Very Low",
-          "severity": "Severe",
-          "compensation": "0.25%"
-        }
-      ],
+      "counterparty_risks": [],
       "smart_contract_risks": [
-        {
-          "name": "Curve smart-contract risk",
-          "probability": "Low",
-          "severity": "Critical",
-          "compensation": "1.00%"
-        }
+        {"name": "Smart-Contract Exploit", "probability": "Low", "severity": "Critical", "compensation": "1.00%"}
       ],
       "governance_risks": [
-        {
-          "name": "Curve DAO risk",
-          "probability": "Very Low",
-          "severity": "Severe",
-          "compensation": "0.25%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "n/a",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "DeFi contagion risk",
-          "probability": "Medium",
-          "severity": "Severe",
-          "compensation": "2.50%"
-        }
+        {"name": "Curve DAO", "probability": "Medium", "severity": "Severe", "compensation": "2.50%"}
       ]
     }
   },
   "risk_parameters": {
     "retained_reserve": 0.40,
-    "target_interest_rate": 0.04,
+    "target_interest_rate": 0.035,
     "global_minting_limit": 2000000,
-    "liquidation_price": null,
-    "maturity": null,
-    "auction_duration": 24,
-    "minimum_collateral": 20000
+    "maturity": "2 years",
+    "auction_duration": 24
   }
 }
 ---
@@ -83,116 +40,62 @@
 
 ## Summary
 
-Curve DAO Token (CRV) is the governance and incentive token of the Curve Finance ecosystem.
+CRV is the governance and incentive token of Curve Finance. It has strong public information and broad secondary-market availability, but no redemption floor: its value depends on Curve DAO's governance, the protocol's continued utility and the functioning of the Curve emissions and liquidity-incentive system.
 
-CRV is a higher-risk collateral candidate. The token has strong public information and secondary-market availability, but no hard redemption floor. The main tail risks are Curve protocol risk, key-person and large-holder concentration risk, and DeFi contagion during market stress.
+The 40% retained reserve provides a reasonable buffer above the 33.81% worst 48-hour close-to-close drawdown observed over the two-year assessment window. The principal residual risks are Curve DAO's stewardship of CRV's governance and economic system, and an exploit or failure anywhere in Curve's wider smart-contract ecosystem. Such an event could damage protocol activity, liquidity incentives and demand for CRV, even if the CRV token contract itself continued to function.
 
-## Introduction
+## Asset Overview
 
-CRV is the native governance token of Curve Finance. It is used in the Curve DAO and veCRV system, where locked CRV influences gauge weights, liquidity incentives, and protocol governance.
+CRV is the native governance token of Curve Finance. It is locked into veCRV for voting power, which directs gauge weights, liquidity incentives and protocol governance. Gauge voting changes emissions allocation on weekly epochs, while the Minter distributes accrued CRV rewards to eligible gauge participants under the token's programmed issuance schedule.
 
-The relevant collateral exposure is therefore not a claim on an issuer or a redeemable asset. It is exposure to the market value of a DeFi governance token whose value depends on the functioning of the Curve protocol.
+CRV is not a claim on an issuer, custodian or redeemable off-chain asset. Its value depends on the relevance, security and adoption of Curve Finance and on the economic utility of veCRV governance and emissions.
 
-## Free Float/Liquidity
+The canonical Ethereum CRV token is a directly deployed Vyper ERC-20, not a proxy. It has no upgrade, pause, blacklist, seizure or privileged burn function. Its `burn` function is self-burn only. The current Curve Ownership Agent is the token's admin; it can change the token's admin and metadata, but cannot pause, upgrade, seize or arbitrarily mint CRV. The designated Curve Minter is fixed and can mint only accrued gauge rewards within the programmed issuance schedule.
+
+## Free Float
 
 Classification: Strong
 
-CRV is widely traded across centralized exchanges and DeFi venues, and has a long public trading history.
+CRV is widely traded across centralised exchanges and DeFi venues, with a long public trading history. Independent challengers and auction buyers can acquire and sell CRV without relying on a single marketplace.
 
 ## Public Information
 
 Classification: Strong
 
-Public information is strong, as CRV is traded on secondary markets and liquidation outcomes can be estimated easily.
+CRV has observable secondary-market pricing and extensive public documentation on Curve governance, gauges and emissions. These efficient, observable prices give challengers a reliable basis to estimate expected auction outcomes.
 
 ## Market Risk
 
-MDD 48h: 33.81%
+99%-VaR, 48h close-to-close: 16.13%
 
-99% VaR (48h): 16.13%
+Worst 48h close-to-close drawdown observed over the two-year assessment window: 33.81%
 
-CRV has had relatively high volatility in the past, such that a retained reserve of 40% is necessary to covers the observed 48h drawdown with an additional buffer for the challenger reward.
+The 40% retained reserve provides a reasonable buffer above the observed drawdown. Historical concentration and leveraged-holder episodes show that CRV can experience rapid price dislocation when large positions are stressed; this is a market-structure consideration rather than a separate named counterparty risk.
 
 ## Tail Risks
 
-### Counterparty Risk: Curve ecosystem and key-person concentration risk
+### Governance Risk: Curve DAO
 
-Description: CRV is not a legal claim on an issuer, custodian, or redemption agent, but it is exposed to Curve ecosystem confidence and key-person or large-holder concentration risk.
-
-Probability: Very Low
-
-Severity: Severe
-
-Compensation: 0.25%
-
-The main concern is not classic issuer counterparty risk. The relevant risk is that large ecosystem figures (for example Michael Egorov) or concentrated holders can create material impact on CRV.
-
-The historic founder borrowing episode, where large CRV holdings were pledged across DeFi lending venues, illustrates how concentrated positions can create forced-liquidation risk, impair market confidence, and amplify downside pressure in CRV.
-
-### Smart Contract Risk: Curve ecosystem
-
-Description: CRV depends on the functioning of the Curve protocol and related token contracts.
-
-Probability: Low
-
-Severity: Critical
-
-Compensation: 1.00%
-
-Curve has a long operating history, but its technical surface is large and systemically relevant across DeFi.
-
-A material exploit, accounting issue, governance-contract failure, or failure in key Curve infrastructure could sharply impair CRV value and liquidity. Given the potential for severe loss of confidence, a 1.00% smart-contract risk premium is appropriate.
-
-### Governance Risk: Curve DAO risk
-
-Description: CRV value depends on Curve DAO governance, veCRV locking, emissions policy, and the incentive structure that supports Curve liquidity.
-
-Probability: Very Low
-
-Severity: Severe
-
-Compensation: 0.25%
-
-CRV's economic value is closely linked to governance utility and emissions control. Stakeholders should generally be aligned with maximizing CRV value, but wrong governance decisions could reduce the token's utility and market value. This risk is distinct from smart-contract failure and supports a separate governance premium.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-CRV is a decentralized governance token rather than a tokenized security, custodial wrapper, or direct legal claim.
-
-### Liquidity Risk: n/a
-
-Description: No separate liquidity-risk premium is assigned.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-CRV has strong secondary-market availability, such that it is not necessary to charge an additional premium for liquidity.
-
-### Contagion Risk: DeFi contagion risk
-
-Description: CRV is exposed to broader DeFi stress, lending-market liquidations, stablecoin-pool confidence, and forced selling by leveraged holders.
-
-Probability: Medium
+Likelihood: Medium
 
 Severity: Severe
 
 Compensation: 2.50%
 
-This is the dominant tail-risk premium for CRV. Curve is deeply connected with other DeFi protocols, and CRV has historically been sensitive to ecosystem confidence and leverage cycles (for example on 10/10/25).
+CRV has no issuer redemption promise, custodian or external obligor. Its economic value is nevertheless materially dependent on Curve DAO, acting through veCRV governance and the Curve Ownership Agent. This governance system determines administrative succession and materially influences CRV's emissions allocation, gauge incentives and protocol-economic utility.
+
+Adverse governance decisions, a failure to maintain incentive alignment or deterioration in Curve's protocol relevance can materially impair CRV's value and liquidity. The token admin cannot pause, upgrade, seize, arbitrarily mint or reset the already-fixed Minter; the risk is Curve DAO and protocol-economic dependency, not direct control over pledged token balances.
+
+### Smart-Contract Risk: Smart-Contract Exploit
+
+Likelihood: Low
+
+Severity: Critical
+
+Compensation: 1.00%
+
+Smart-contract risk does not relate only to the CRV token. It covers the entire Curve smart-contract ecosystem, including the contracts that run pools, distribute CRV rewards, govern liquidity incentives and operate the veCRV system. An exploit or failure in any material part of that ecosystem could reduce Curve activity, liquidity and the economic value of CRV, even if the CRV token itself continued to function. The 1.00% compensation covers this wider protocol risk.
 
 ## Conclusion
 
-CRV is an acceptable but higher-risk collateral candidate for Frankencoin.
-
-The proposed retained reserve of 40% is appropriate relative to the observed 33.81% worst 48h close-to-close drawdown. The target interest rate of 4.0% is justified by the selected risk premia: 0.25% for Curve ecosystem and key-person concentration risk, 1.00% for smart-contract and protocol risk, 0.25% for governance and emissions risk, and 2.50% for crypto market & DeFi contagion risk.
+The 40% retained reserve provides a reasonable buffer against the 33.81% worst 48h close-to-close drawdown observed over the two-year assessment window. The 3.50% effective interest rate compensates the assessed Curve DAO and smart-contract tail risks. The 2,000,000 ZCHF global minting limit restricts the maximum withdrawable amount to 1,200,000 ZCHF and limits exposure to Curve-specific governance or technical stress. CRV's Strong Free Float supports a 24-hour auction duration, and a maturity of 2 years is reasonable before the collateral needs to be reassessed.
