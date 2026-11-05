@@ -3,78 +3,33 @@
   "asset_name": "Bitget Token",
   "asset_ticker": "BGB",
   "contract_address": "0x54D2252757e1672EEaD234D27B1270728fF90581",
-  "assessment_date": "2026-09-11",
+  "assessment_date": "2026-11-05",
   "author": "Paolo Di Stefano",
   "links": {
     "etherscan": "https://etherscan.io/token/0x54D2252757e1672EEaD234D27B1270728fF90581",
     "coingecko": "https://www.coingecko.com/en/coins/bitget-token",
-    "website": "https://www.morphl2.io/",
-    "docs": "https://docs.morphl2.io/",
+    "website": "https://www.bitget.com/",
+    "docs": "https://www.morphl2.io/",
     "other": "https://github.com/Frankencoin-ZCHF/Frankencoin/discussions/112"
   },
   "risk_scores": {
     "public_information": "Strong",
     "free_float": "Strong",
-    "market_risk": "22.07%",
+    "market_risk": "22.28%",
     "tail_risks": {
       "counterparty_risks": [
-        {
-          "name": "Bitget / Morph ecosystem dependency",
-          "probability": "Medium",
-          "severity": "Critical",
-          "compensation": "3.00%"
-        }
+        {"name": "Bitget", "probability": "Medium", "severity": "Critical", "compensation": "5.00%"}
       ],
-      "smart_contract_risks": [
-        {
-          "name": "Smart-Contract Risk",
-          "probability": "Very Low",
-          "severity": "Severe",
-          "compensation": "0.25%"
-        }
-      ],
-      "governance_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Exchange-concentrated liquidity",
-          "probability": "Low",
-          "severity": "Severe",
-          "compensation": "0.50%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "Crypto exchange and market contagion",
-          "probability": "Medium",
-          "severity": "Moderate",
-          "compensation": "1.25%"
-        }
-      ]
+      "smart_contract_risks": [],
+      "governance_risks": []
     }
   },
   "risk_parameters": {
     "retained_reserve": 0.40,
     "target_interest_rate": 0.05,
     "global_minting_limit": 2000000,
-    "liquidation_price": 0.99,
-    "maturity": null,
-    "auction_duration": 24,
-    "minimum_collateral": null
+    "maturity": "2 years",
+    "auction_duration": 24
   }
 }
 ---
@@ -83,134 +38,54 @@
 
 ## Summary
 
-BGB is the native gas, governance, and ecosystem token of Morph, a payments-focused Ethereum Layer 2 closely linked to the broader Bitget ecosystem.
+BGB is Bitget's exchange-utility token and, since the 2025 Bitget–Morph partnership, the gas and governance token of Morph. It has strong public information and broad secondary-market availability, but its value remains materially dependent on Bitget's exchange franchise and the Morph Foundation's execution of BGB's ecosystem roadmap.
 
-BGB is a strong but non-standard collateral candidate. It has strong public information, strong secondary-market availability, and meaningful market capitalization, but its collateral quality depends heavily on Bitget's exchange business, liquidity support, and continued commitment to BGB.
+The 40% retained reserve provides a reasonable buffer above the 22.28% worst 48-hour close-to-close drawdown observed over the two-year assessment window. The main residual risk is one correlated Bitget / Morph Foundation exposure: an adverse event affecting either the exchange or Morph-side adoption can impair BGB utility, market confidence and liquidation conditions at the same time.
 
-## Introduction
+## Asset Overview
 
-BGB was originally launched as an incentive and utility token for Bitget users and has since been upgraded to serve as the gas and governance token for Morph. Morph is a payments-focused Ethereum Layer 2 settlement layer with native stablecoin support and broader integrations across the Bitget and payments ecosystem.
+BGB is used across Bitget for fee discounts, VIP benefits, Launchpool and wallet-gas programmes. Bitget and Morph announced an exclusive strategic partnership in September 2025. Bitget transferred the 440 million BGB controlled by the Bitget team to the Morph Foundation: 220 million were designated for burn and the remaining 220 million were locked for gradual release at 2% per month for Morph liquidity incentives, ecosystem expansion, education and awareness.
 
-The relevant collateral exposure is therefore not a neutral crypto asset like BTC or ETH. It is exposure to an exchange- and sponsor-linked ecosystem token whose value depends on Bitget's exchange business, Morph adoption, token utility, and continued market confidence.
+Bitget states that the Morph Foundation is responsible for BGB's future development roadmap. BGB is therefore not a neutral cryptoasset or a redeemable claim on either Bitget or the Morph Foundation; its value depends on exchange utility, Morph adoption, distribution policy and continued market confidence.
 
-Bitget has a strong incentive to maintain liquidity, credibility, and utility around BGB. This strategic linkage is also the main collateral risk.
+The canonical Ethereum BGB token is a direct ERC-20 implementation with a 2 billion BGB total supply. It has no owner, upgrade, mint, contract-level burn, pause, freeze, blacklist, seizure or transfer-restriction function. BGB burns described in Bitget materials are holder-controlled transfers to a burn address, not a privileged burn authority in this token contract.
 
-## Free Float/Liquidity
+## Free Float
 
 Classification: Strong
 
-BGB has a meaningful market capitalization, a multi-year trading history, and secondary-market availability across centralized exchanges such as Bitget, Kraken, MEXC, Bitfinex, and others.
+BGB has a meaningful market capitalisation, a multi-year trading history and secondary-market availability across Bitget and other centralised venues, including Kraken, MEXC and Bitfinex. Independent challengers and auction buyers can acquire and sell BGB without relying on a single marketplace.
 
-Liquidity is nevertheless concentrated. Most BGB trading volume takes place on Bitget, while on-chain liquidity is materially smaller. This makes BGB liquid in normal market conditions, but dependent on the continued operation and market confidence of Bitget.
+Trading is nevertheless concentrated on Bitget and on-chain liquidity is materially smaller. This concentration is reflected in the 40% retained reserve and the 2,000,000 ZCHF global minting limit.
 
 ## Public Information
 
 Classification: Strong
 
-Public information is strong. BGB has public exchange pricing, a CoinGecko listing, a multi-year trading history, public token information, and public ecosystem documentation through Bitget and Morph.
-
-Bitget also publishes monthly proof-of-reserve information, which provides useful transparency on the exchange's reserve position. This does not eliminate operational, security, or solvency risk, but it improves public observability.
+BGB has public exchange pricing, a multi-year trading history, public token information and public documentation from Bitget and Morph. These observable prices give challengers a reliable basis to estimate expected auction outcomes. Bitget's published proof-of-reserve information provides supplementary transparency on the exchange, but does not remove sponsor, operational or solvency risk.
 
 ## Market Risk
 
 99%-VaR, 48h close-to-close: 13.27%
 
-Maximum Drawdown, 48h close-to-close: 22.07%
+Worst 48h close-to-close drawdown observed over the two-year assessment window: 22.28%
 
-BGB's observed 48h close-to-close market-risk metrics remain below the proposed 40% retained reserve. The 40% reserve is therefore defensible against historical close-to-close price moves and leaves an additional buffer for challenger rewards and liquidation execution.
-
-Daily close-to-close data can nevertheless understate very short-term stress. In October 2024, BGB briefly fell by more than 50% intraday before recovering quickly. Frankencoin's slower auction-based liquidation process is helpful for this type of flash crash, as the auction mechanism gives the market time to normalize before collateral is sold.
+The 40% retained reserve provides a reasonable buffer above the observed drawdown and for execution under concentrated venue conditions.
 
 ## Tail Risks
 
-### Counterparty Risk: Bitget / Morph ecosystem dependency
+### Counterparty Risk: Bitget
 
-Description: BGB depends on Bitget's exchange business, brand, liquidity support, and continued commitment to BGB and Morph.
-
-Probability: Medium
+Likelihood: Medium
 
 Severity: Critical
 
-Compensation: 3.00%
+Compensation: 5.00%
 
-This is the dominant tail risk. BGB is not a redeemable claim on Bitget, but its market value is closely linked to Bitget's exchange franchise and the broader Bitget/Morph ecosystem. If Bitget suffered a severe solvency, operational, regulatory, or security event, BGB could lose market confidence very quickly.
+BGB is not a redeemable claim on Bitget or the Morph Foundation, and the Ethereum token contract has no issuer-admin, mint, pause, freeze, blacklist or upgrade authority. Its value nevertheless remains materially dependent on Bitget's continued operation and BGB utility policies, and on the Morph Foundation's BGB roadmap, gas and governance adoption, and management of the transferred team allocation.
 
-The relevant adverse comparison is the FTX collapse, where FTT lost most of its value within 48 hours once confidence in FTX's solvency broke. A 40% reserve requirement would not protect against such an extreme exchange-token collapse. The correct control is therefore a conservative global minting limit, combined with an interest premium that compensates FPS holders for bearing this residual tail risk.
-
-Global Minting Limit: 2,000,000 ZCHF
-
-At the full 2,000,000 ZCHF minting limit, up to 1,200,000 ZCHF could be withdrawn at a 40% reserve requirement. If BGB suffered an FTX-style collapse, the remaining collateral value could be materially impaired. The global minting limit therefore needs to remain conservative and well below the size of the equity pool, so that even an extreme Bitget-related event cannot threaten the system's survival.
-
-### Smart Contract Risk: Smart-Contract Risk
-
-Description: BGB depends on the Ethereum ERC-20 token contract and related bridge and market infrastructure.
-
-Probability: Very Low
-
-Severity: Severe
-
-Compensation: 0.25%
-
-BGB is an established ERC-20 token with a multi-year history. A review of the Ethereum token contract did not indicate standard admin freeze, blacklist, or direct admin minting controls. Smart-contract risk is therefore considered very low, but not zero.
-
-Residual technical risk remains around ERC-20 transferability, exchange infrastructure, bridge infrastructure, and the broader Morph/CCIP ecosystem. A 0.25% compensation is assigned.
-
-### Governance Risk: n/a
-
-Description: No separate governance-risk premium is assigned in the current classification.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-BGB has governance relevance within Morph, but the dominant risk is not decentralized governance failure. The relevant issue is Bitget/Morph sponsor dependency, token-utility policy, and ecosystem execution, which is already captured under counterparty and ecosystem dependency. No separate governance-risk premium is assigned to avoid double-counting.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned in the current classification.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-BGB is not a tokenized security, custodial wrapper, or redeemable off-chain claim. Regulatory or legal pressure on Bitget could affect BGB indirectly, but this is captured through the Bitget / Morph ecosystem dependency risk rather than as a separate legal-risk premium.
-
-### Liquidity Risk: Exchange-concentrated liquidity
-
-Description: BGB liquidity is meaningful in normal markets, but highly concentrated on Bitget and therefore vulnerable to exchange-specific stress.
-
-Probability: Low
-
-Severity: Severe
-
-Compensation: 0.50%
-
-Current BGB liquidity is sufficient for the proposed initial allocation, but it is not venue-neutral. Most trading volume is concentrated on Bitget, while alternative centralized venues and on-chain liquidity are smaller.
-
-If Bitget were impaired or trading were disrupted, BGB liquidity could deteriorate at the same time as the token price falls. This concentration justifies a separate 0.50% liquidity-risk premium.
-
-### Contagion Risk: Crypto exchange and market contagion
-
-Description: BGB may be affected by broader crypto-market stress, exchange-token repricing, and loss of confidence in centralized exchange tokens.
-
-Probability: Medium
-
-Severity: Moderate
-
-Compensation: 1.25%
-
-BGB is exposed to broader crypto-market sentiment and to contagion across centralized exchange tokens. In a sector-wide exchange-stress event, BGB could reprice more sharply than ordinary market volatility suggests.
-
-The 40% retained reserve reduces the expected system impact of this contagion risk. A 1.25% compensation is assigned for residual contagion risk beyond the ordinary market-risk buffer.
+A severe Bitget solvency, security, regulatory or trading-disruption event, or a failure of Morph-side adoption and token-distribution policy, could simultaneously impair BGB utility, market confidence and liquidation conditions. This is one correlated ecosystem-sponsor exposure and is not split into separate smart-contract, liquidity or governance premia.
 
 ## Conclusion
 
-BGB is an acceptable but higher-risk collateral candidate for Frankencoin.
-
-The proposed retained reserve of 40% is appropriate relative to the observed 22.07% worst 48h close-to-close drawdown and leaves a substantial buffer for liquidation execution. The target interest rate of 5.0% is justified by the selected risk premia: 3.00% for Bitget / Morph ecosystem dependency, 0.25% for smart-contract risk, 0.50% for liquidity concentration, and 1.25% for crypto exchange and market contagion risk.
-
-The proposed 2,000,000 ZCHF global minting limit is the primary safeguard against an extreme Bitget-related tail event. The Association therefore views a one-year maturity as a reasonable starting point, allowing the collateral and its minting parameters to be reassessed within a clear timeframe.
+The 40% retained reserve provides a reasonable buffer against the 22.28% worst 48h close-to-close drawdown observed over the two-year assessment window. The 5.00% effective interest rate compensates the assessed Bitget / Morph Foundation tail risk. The 2,000,000 ZCHF global minting limit restricts the maximum withdrawable amount to 1,200,000 ZCHF and limits exposure to an extreme ecosystem-sponsor event. BGB's Strong Free Float supports a 24-hour auction duration, and a maturity of 2 years is reasonable before the collateral needs to be reassessed.
