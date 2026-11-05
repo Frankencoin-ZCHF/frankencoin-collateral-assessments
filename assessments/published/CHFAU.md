@@ -17,15 +17,9 @@
     "free_float": "Sufficient",
     "market_risk": "0%",
     "tail_risks": {
-      "counterparty_risks": [
-        {"name": "AllUnity", "probability": "Negligible", "severity": "n/a", "compensation": "0%"}
-      ],
-      "smart_contract_risks": [
-        {"name": "Smart-Contract Exploit", "probability": "Negligible", "severity": "n/a", "compensation": "0%"}
-      ],
-      "governance_risks": [
-        {"name": "Admin-Control", "probability": "Negligible", "severity": "n/a", "compensation": "0%"}
-      ]
+      "counterparty_risks": [{"name": "AllUnity", "probability": "Negligible", "severity": "n/a", "compensation": "0%"}],
+      "smart_contract_risks": [{"name": "Smart-Contract Exploit", "probability": "Negligible", "severity": "n/a", "compensation": "0%"}],
+      "governance_risks": [{"name": "Admin-Control", "probability": "Negligible", "severity": "n/a", "compensation": "0%"}]
     }
   },
   "risk_parameters": {
@@ -33,7 +27,7 @@
     "target_interest_rate": 0,
     "global_minting_limit": 10000000,
     "maturity": "1 year",
-    "auction_duration": n/a
+    "auction_duration": 0
   }
 }
 ---
@@ -54,7 +48,7 @@ CHFAU is an e-money token. Holders' recovery depends on AllUnity's reserve manag
 
 ## Free Float
 
-Classification: Strong
+Classification: Sufficient
 
 CHFAU has direct issuance and redemption routes through AllUnity's institutional distribution and onboarding framework, alongside observable secondary-market access. Independent challengers and auction buyers can acquire and sell CHFAU without relying on a single marketplace.
 
