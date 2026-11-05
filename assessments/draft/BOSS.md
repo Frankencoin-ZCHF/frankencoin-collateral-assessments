@@ -3,7 +3,7 @@
   "asset_name": "Boss Info AG",
   "asset_ticker": "BOSS",
   "contract_address": "0x2e880962a9609aa3eab4def919fe9e917e99073b",
-  "assessment_date": "2026-08-01",
+  "assessment_date": "2026-11-05",
   "author": "Paolo Di Stefano",
   "links": {
     "etherscan": "https://etherscan.io/token/0x2e880962a9609aa3eab4def919fe9e917e99073b",
@@ -18,52 +18,13 @@
     "market_risk": "n/a",
     "tail_risks": {
       "counterparty_risks": [
-        {
-          "name": "Boss Info AG",
-          "probability": "Medium",
-          "severity": "Critical",
-          "compensation": "3.00%"
-        }
+        {"name": "Boss Info AG", "probability": "Medium", "severity": "Critical", "compensation": "3.00%"}
       ],
       "smart_contract_risks": [
-        {
-          "name": "Smart-Contract Exploit",
-          "probability": "Very Low",
-          "severity": "Critical",
-          "compensation": "0.50%"
-        }
+        {"name": "Smart-Contract Exploit", "probability": "Very Low", "severity": "Critical", "compensation": "0.50%"}
       ],
       "governance_risks": [
-        {
-          "name": "n/a",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Secondary Market Liquidity",
-          "probability": "Low",
-          "severity": "Severe",
-          "compensation": "0.50%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "n/a",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
+        {"name": "Admin-Control", "probability": "Very Low", "severity": "Critical", "compensation": "0.50%"}
       ]
     }
   },
@@ -71,10 +32,8 @@
     "retained_reserve": 0.40,
     "target_interest_rate": 0.04,
     "global_minting_limit": 5000000,
-    "liquidation_price": 4.00,
-    "maturity": null,
-    "auction_duration": 72,
-    "minimum_collateral": 2500
+    "maturity": "2 years",
+    "auction_duration": 72
   }
 }
 ---
@@ -83,157 +42,81 @@
 
 ## Summary
 
-BOSS is the tokenized equity token of Boss Info AG, a private Swiss IT services and ERP implementation company. The token is issued using Aktionariat AG’s tokenization infrastructure and represents private-company equity exposure rather than a liquid crypto asset or listed security.
+BOSS is the tokenized equity of Boss Info AG, a private Swiss IT services, ERP implementation and software-integration business. It represents private-company equity rather than a liquid crypto asset or listed security.
 
-BOSS is a more complex collateral candidate because there is no continuously observable secondary-market price that can be used as a reliable liquidation reference. The relevant collateral value must therefore be derived from company valuation and thus warrants more conservative buffers.
+There is no continuously observable secondary-market price for BOSS. Collateral value must therefore be assessed from the company's financial performance and a fundamental equity valuation, while liquidation depends on a narrower buyer universe than for listed shares.
 
-The estimated valuation based on the latest financial statements supports a defensible equity value of approximately CHF 47 million, or around CHF 4.40 per share. This is based primarily on an upper-end but still industry-appropriate IT services multiple applied to the 2025 EBITDA recovery, after deducting net financial debt.
+The main residual risks are Boss Info AG's operating and financial performance, the token's processor- and rule-engine-dependent contract stack, and privileged controls that can alter token logic, transfer validation or token supply.
 
-To account for valuation uncertainty, the liquidation price is set conservatively at CHF 4.00 per share. This reflects roughly a 10% haircut to the CHF 4.40 valuation reference. A 40% reserve is retained to absorb potential delays before liquidation can be completed, as well as a possible auction discount given the absence of meaningful secondary-market liquidity and therefore limited arbitrageur participation.
+## Asset Overview
 
-The 40% retained reserve and CHF 4.00 liquidation price are therefore important safeguards. The 4.00% target interest rate reflects the counterparty, liquidity, and residual smart-contract risk, while the 5,000,000 ZCHF global minting limit keeps the exposure contained. The position should be reassessed as updated financial statements become available.
+The 2025 financial statements show a meaningful recovery in operating performance, with CHF 38.5 million of operating revenue, CHF 6.3 million of EBITDA, CHF 0.9 million of EBIT and CHF 5.7 million of operating cash flow. The company remains more balance-sheet constrained than a pure software business, with low book equity, substantial intangibles and approximately CHF 8.5 million of net financial debt.
 
-## Introduction
+The valuation considers four methods:
 
-Boss Info AG is a Swiss IT services, ERP implementation, and software integration business.
+- Adjusted net asset value: CHF 0.4 million–6.4 million. This has limited relevance for an IT services and software-integration business because customer relationships, implementation know-how and internally generated business value are not fully captured on the balance sheet.
+- Earnings value: CHF 19.8 million–44.5 million. This is highly relevant because it reflects the sustainable profit base, using the stronger operating years 2025, 2023 and 2022 rather than treating 2024 as representative.
+- Comparable-company multiples: CHF 29.5 million–53.7 million. This is highly relevant because it reflects observed valuations for comparable IT services and software-integration businesses. Applying approximately 8.5×–8.8× to 2025 EBITDA and deducting net financial debt supports around CHF 45 million–47 million of equity value, or CHF 4.25–4.45 per share.
+- Discounted cash flow: CHF 16.1 million–53.0 million. This captures operating recovery and cash generation but remains sensitive to growth, margins, reinvestment, WACC and terminal assumptions.
 
-The 2025 financial statements show a meaningful recovery in operating performance, with CHF 38.5 million of operating revenue, CHF 6.3 million of EBITDA, CHF 0.9 million of EBIT, and CHF 5.7 million of operating cash flow. The company remains more balance-sheet constrained than a pure software business, with low book equity, substantial intangibles, and approximately CHF 8.5 million of net financial debt.
+For the nature of the business, the earnings-value and multiples approaches are the most relevant. They support an equity reference value of approximately CHF 47 million, or around CHF 4.40 per share.
 
-More detailed valuation methods produce the following ranges:
-
-- Adjusted net asset value: CHF 0.4 million–6.4 million. This method has low relevance for an IT services and software-integration business, because customer relationships, implementation know-how, and internally generated business value are not fully captured on the balance sheet.
-
-- Earnings value: CHF 19.8 million–44.5 million. This method has high relevance because it reflects the current sustainable profit base. The range ignores 2024 as a one-year exception and instead relies on the stronger operating years 2025, 2023, and 2022.
-
-- Multiples valuation: CHF 29.5 million–53.7 million. This method has high relevance because it reflects observed market valuations for comparable IT services and software-integration businesses. In particular, applying roughly 8.5×–8.8× to 2025 EBITDA and deducting net financial debt supports approximately CHF 45 million–47 million of equity value, or around CHF 4.25–4.45 per share.
-
-- Discounted cash flow: CHF 16.1 million–53.0 million. This method has medium relevance from a collateral perspective because it captures operating recovery and cash generation, but it remains sensitive to growth, margin, reinvestment, WACC, and terminal assumptions.
-
-For the nature of the business, the earnings-value and multiples-based approaches are the most relevant. The upper-end but industry-appropriate IT services multiple supports a defensible value of around CHF 4.40 per share. Applying a 10% haircut gives a liquidation price of CHF 4.00 per share.
-
-## Free Float/Liquidity
+## Free Float
 
 Classification: Sufficient
 
-BOSS has a tokenized shareholder base and is issued using the technology from Aktionariat AG, with a small internally operated secondary market place for the tokens available for identified users.
+BOSS has a tokenized shareholder base and a small, identified-user marketplace operated through shares.bossinfo.com.
 
-However, BOSS is private-company equity. Liquidity is structurally weaker than for listed equities, major crypto assets, or large liquid staking tokens. Even if the token is technically transferable, liquidation depends on the availability of buyers for Boss Info AG equity at the relevant time.
-
-The free-float classification is therefore sufficient.
+However, BOSS remains private-company equity. Auction outcomes depend on buyers' willingness to acquire Boss Info AG shares at a fundamental valuation rather than on a deep, continuously quoted market. This supports a Sufficient, rather than Strong, Free Float classification.
 
 ## Public Information
 
 Classification: Sufficient
 
-Public information is sufficient. Financial statements are available, on-chain contract information is public, and sufficient company-level information about the nature of Boss Info AG's business model is available.
+Boss Info AG's financial statements, company information and on-chain token contracts provide a basis for challengers to estimate the equity value and expected auction outcomes.
 
-Public information is however materially weaker than for a listed company, as there is no liquid secondary market providing observable trading prices. Potential challengers must therefore estimate auction outcomes using fundamental data, which makes a projected auction outcome inherently less certain.
+Public information remains weaker than for a listed company. There is no continuously observable secondary-market price, and company value must be estimated from financial statements, comparable-company evidence and the capital structure.
 
 ## Market Risk
 
 99%-VaR, 48h close-to-close: n/a
 
-Maximum Drawdown, 48h close-to-close: n/a
+Worst 48h close-to-close drawdown observed over the assessment window: n/a
 
-There is no reliable continuous secondary-market price series for BOSS.
+BOSS has no reliable continuous secondary-market price series. The retained reserve is therefore calibrated to valuation uncertainty and the expected discount required to sell private-company equity through an auction.
 
 ## Tail Risks
 
 ### Counterparty Risk: Boss Info AG
 
-Description: BOSS represents exposure to Boss Info AG, a private Swiss IT services and ERP implementation company with operating, financial, and execution risk.
-
-Probability: Medium
+Likelihood: Medium
 
 Severity: Critical
 
 Compensation: 3.00%
 
-This is the dominant tail risk. BOSS is the equity of a private operating company. If the company fails, the token could potentially become worthless.
+BOSS represents equity in a private operating company. The 2025 operating recovery and positive cash flow support the valuation, but low book equity, substantial intangibles and material net financial debt remain relevant. A deterioration in operating performance, financial position or execution could materially impair the value of the equity.
 
-The 2025 financial statements show a meaningful EBITDA recovery and positive operating cash flow, but the company still has low book equity, substantial intangibles, and material financial debt. The collateral therefore carries meaningful private-company issuer risk. A 3.00% compensation is assigned for this risk.
+### Smart-Contract Risk: Smart-Contract Exploit
 
-Global Minting Limit: 5,000,000 ZCHF
-
-Since this risk is classified as Medium probability, it triggers a global minting limit requirement based on the framework. This means the withdrawable amount should remain significantly below what the equity pool could theoretically absorb. A ZCHF 3 million withdrawable amount appears appropriate. With a retained reserve of 40%, this implies a global minting limit of 5,000,000 ZCHF.
-
-### Smart Contract Risk: Smart-Contract Exploit
-
-Description: BOSS is implemented as a tokenized equity instrument using Aktionariat AG technology and therefore carries residual smart-contract and token-infrastructure risk.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Critical
 
 Compensation: 0.50%
 
-BOSS does not expose explicit pause, freeze, or blacklist functions by those names. However, it is not a vanilla ERC-20. The token is implemented as an upgradeable ShareBridgeToken with an external processor contract that handles balances, transfer validation, minting, burning, and seizure mechanics.
+BOSS is an upgradeable ShareBridgeToken rather than a standalone ERC-20. It routes balances, transfer validation, minting, burning and seizure through an external Processor, which in turn uses a Rule Engine. A technical failure in the token, Processor or Rule Engine could independently impair balances, transferability or recoverability.
 
-Transfers are subject to configurable rules through `canTransfer` / `setRules`. The current rule configuration appears minimal, but administrators can update transfer rules, which may affect transferability. The token also includes role-based supplier mint/burn functionality and a seizer mechanism, although no active seizer role was identified in the checked live roles.
+### Governance Risk: Admin-Control
 
-Residual smart-contract risk therefore remains due to proxy upgradeability, processor dependency, configurable transfer rules, and role-based supply/seizure mechanics.
+Likelihood: Very Low
 
-### Governance Risk: n/a
-
-Description: No separate governance-risk premium is assigned in the current classification.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-BOSS is private-company equity and therefore naturally exposed to shareholder, board, and management decisions. These are treated as part of the private-company issuer risk rather than a separate governance-risk premium.
-
-No additional standalone governance-risk premium is assigned to avoid double-counting.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned in the current classification.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-BOSS is issued through a Swiss tokenized-share framework using Aktionariat technology. Legal and transfer mechanics remain relevant, but the current classification does not assign a separate legal-risk premium.
-
-Legal and enforceability considerations are mainly captured through counterparty/issuer risk and liquidity risk.
-
-### Liquidity Risk: Secondary Market Liquidity
-
-Description: BOSS has limited secondary-market liquidity and no reliable secondary-market price.
-
-Probability: Low
-
-Severity: Severe
+Severity: Critical
 
 Compensation: 0.50%
 
-This is a material tail risk. Even if the valuation is reasonable, liquidators may not be able to realize that value quickly. Private-company equity can require a longer sale process, a wider valuation discount, and a smaller buyer universe.
-
-A 0.50% compensation is assigned for residual liquidity and valuation-realization risk.
-
-### Contagion Risk: n/a
-
-Description: No separate contagion-risk premium is assigned.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-BOSS is not exposed to DeFi contagion in the same way as crypto-native collateral. Its primary risk is company-specific private-equity risk rather than protocol contagion.
-
-No separate contagion-risk premium is assigned.
+The BOSS proxy administrator can upgrade the token implementation. The token owner can add administrators, change transfer rules, replace the Processor and add or remove suppliers and seizers. The current owner is an active supplier and can mint tokens to any address or burn tokens from any address without the holder's allowance. No active seizer is currently configured, but the owner can add one. These controls could alter transfer validation, token supply or the ability to liquidate BOSS collateral.
 
 ## Conclusion
 
-BOSS is a more complex collateral candidate because there is no continuously observable secondary-market price that can be used as a reliable liquidation reference. The relevant collateral value must therefore be derived from company valuation and thus warrants more conservative buffers.
-
-The 2025 financial statements support a defensible valuation of approximately CHF 4.40 per share when using an upper-end but industry-appropriate IT services multiple, cross-checked against earnings value and DCF outputs. Applying a 10% buffer gives a CHF 4.00 liquidation price.
-
-The 40% retained reserve and CHF 4.00 liquidation price are therefore important safeguards. The 4.00% target interest rate reflects the counterparty, liquidity, and residual smart-contract risk, while the 5,000,000 ZCHF global minting limit keeps the exposure contained. The position should be reassessed as updated financial statements become available.
-
+The 40% retained reserve provides a substantial buffer against valuation uncertainty and the auction discount required for private-company equity. The 4.00% effective interest rate compensates the assessed tail risks. The framework requires a cap on the global minting limit because Boss Info AG carries a Medium-probability counterparty risk; the 5,000,000 ZCHF global minting limit restricts the maximum withdrawable amount to 3,000,000 ZCHF. BOSS's Sufficient Free Float supports a 72-hour auction duration, and a maturity of 2 years is reasonable before the collateral needs to be reassessed.
