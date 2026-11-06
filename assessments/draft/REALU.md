@@ -1,81 +1,9 @@
 ---
 {
-  "asset_name": "RealUnit Schweiz AG",
-  "asset_ticker": "REALU",
-  "contract_address": "0x553C7f9C780316FC1D34b8e14ac2465Ab22a090B",
-  "assessment_date": "2026-08-01",
-  "author": "Paolo Di Stefano",
-  "links": {
-    "etherscan": "https://etherscan.io/token/0x553C7f9C780316FC1D34b8e14ac2465Ab22a090B",
-    "coingecko": "",
-    "website": "https://realunit.ch/loesung/aktie-und-finanzdaten/",
-    "docs": "https://realunit.ch/loesung/aktientoken/",
-    "other": "https://realunit.ch/wp-content/uploads/dlm_uploads/2026/03/Geschaeftsbericht-RealUnit-2025_compressed.pdf"
-  },
-  "risk_scores": {
-    "public_information": "Sufficient",
-    "free_float": "Sufficient",
-    "market_risk": "11.56%",
-    "tail_risks": {
-      "counterparty_risks": [
-        {
-          "name": "RealUnit Schweiz AG",
-          "probability": "Medium",
-          "severity": "Severe",
-          "compensation": "1.00%"
-        }
-      ],
-      "smart_contract_risks": [
-        {
-          "name": "Smart-Contract Exploit",
-          "probability": "Very Low",
-          "severity": "Critical",
-          "compensation": "0.50%"
-        }
-      ],
-      "governance_risks": [
-        {
-          "name": "Company Governance",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "legal_risks": [
-        {
-          "name": "n/a",
-          "probability": "n/a",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ],
-      "liquidity_risks": [
-        {
-          "name": "Secondary Market Liquidity",
-          "probability": "Low",
-          "severity": "Severe",
-          "compensation": "0.50%"
-        }
-      ],
-      "contagion_risks": [
-        {
-          "name": "n/a",
-          "probability": "Negligible",
-          "severity": "n/a",
-          "compensation": "0%"
-        }
-      ]
-    }
-  },
-  "risk_parameters": {
-    "retained_reserve": 0.15,
-    "target_interest_rate": 0.02,
-    "global_minting_limit": 8000000,
-    "liquidation_price": 1.2,
-    "maturity": null,
-    "auction_duration": 36,
-    "minimum_collateral": 5000
-  }
+  "asset_name": "RealUnit Schweiz AG", "asset_ticker": "REALU", "contract_address": "0x553C7f9C780316FC1D34b8e14ac2465Ab22a090B", "assessment_date": "2026-11-06", "author": "Paolo Di Stefano",
+  "links": {"etherscan":"https://etherscan.io/token/0x553C7f9C780316FC1D34b8e14ac2465Ab22a090B","coingecko":"","website":"https://realunit.ch/loesung/aktie-und-finanzdaten/","docs":"https://realunit.ch/loesung/aktientoken/","other":"https://realunit.ch/wp-content/uploads/dlm_uploads/2026/03/Geschaeftsbericht-RealUnit-2025_compressed.pdf"},
+  "risk_scores": {"public_information":"Sufficient","free_float":"Sufficient","market_risk":"11.56%","tail_risks":{"counterparty_risks":[{"name":"RealUnit Schweiz AG","probability":"Medium","severity":"Severe","compensation":"1.50%"}],"smart_contract_risks":[{"name":"Smart-Contract Exploit","probability":"Very Low","severity":"Critical","compensation":"0.50%"}],"governance_risks":[{"name":"Admin-Control","probability":"Very Low","severity":"Critical","compensation":"0.50%"}]}},
+  "risk_parameters":{"retained_reserve":0.20,"target_interest_rate":0.025,"global_minting_limit":5000000,"maturity":"2 years","auction_duration":72}
 }
 ---
 
@@ -83,140 +11,86 @@
 
 ## Summary
 
-REALU is the tokenized equity token of RealUnit Schweiz AG, a Swiss investment company. The token is issued using Aktionariat AG technology and represents tokenized registered shares on Ethereum.
+REALU is the tokenized Series-B registered share of RealUnit Schweiz AG, a Swiss investment company. It is assessed primarily against reported net asset value rather than operating-company earnings multiples. The 20% retained reserve is above the 11.56% largest price decline observed over 72 hours in the listed Series A bearer shares.
 
-The relevant collateral value is primarily the company's reported net asset value (NAV), supported by a portfolio of equities, physical precious metals, cash, and some crypto assets.
+The main residual risks are RealUnit’s integrity, portfolio valuation and custody, the tokenized-share smart-contract stack, and central admin control over token terms, transfer restrictions and invalidation.
+ 
+## Asset Overview
 
-Per the 2025 annual report, RealUnit reported net assets of CHF 52.6 million and 39,093,976 shares outstanding, corresponding to a NAV of CHF 1.35 per share. The RealUnit website currently reports a live NAV of CHF 1.32 per share.
+RealUnit Schweiz AG is a Swiss investment company founded in 2017 and domiciled in Baar. Its stated strategy is real capital preservation through physical precious metals, Swiss and international equities, cash, nominal assets, alternative investments and a small crypto allocation.
 
-## Introduction
+At 31 December 2025, RealUnit reported total assets of CHF 53.9m, total liabilities of CHF 1.3m and total equity of CHF 52.6m. It reported 39,093,976 shares outstanding and a NAV of CHF 1.35 per share. The portfolio allocation was 46.9% physical precious metals, 32.4% equities, 8.5% physical CHF cash, 5.2% nominal assets, 3.9% alternative investments and 3.2% crypto assets. RealUnit classified 87% of the portfolio as very liquid, 7% as liquid and 6% as illiquid.
 
-RealUnit Schweiz AG is a Swiss investment company founded in 2017 and domiciled in Baar. Its stated strategy is real capital preservation through investments in physical precious metals, Swiss and international equities, cash, nominal assets, alternative investments, and a small crypto allocation.
+The 2025 structure comprised listed Series-A bearer shares and tokenized Series-B registered shares. Following the September 2026 capital increase, RealUnit reported 44,462,121 listed Series-A bearer shares and 7,000,000 unlisted Series-B registered shares. REALU represents the unlisted Series-B registered share class, which has a different transfer and settlement path from the listed Series-A shares.
 
-REALU should therefore be assessed differently from ordinary equity tokens. RealUnit does not have an operating business where enterprise value must be estimated from earnings, revenue multiples, or DCF assumptions.
+RealUnit publishes an indicative NAV. The figure is useful as a valuation reference, but the issuer notes that it may differ from actual value because of valuation assumptions, stale pricing of illiquid investments or technical-feed errors. The officially prepared financial reports remain the principal valuation reference.
 
-Besides the regularly updated (indicative) NAV value on their website, the company is also listed on BX Swiss. This improves public information and gives an observable reference price on the secondary market. However, BX Swiss is a small trading venue and should not be treated as equivalent to a deep listed-equity market.
-
-From a collateral perspective, the NAV remains the main valuation anchor. Real Unit however declares that the self-reported NAV on their website might be incorrect, incomplete or temporarily unavailable. That means only the NAV reported with the officially prepared quarterly report should be considered a reliable source of truth.
-
-The 2025 balance sheet shows total assets of CHF 53.9 million, total liabilities of CHF 1.3 million, and total equity of CHF 52.6 million. Portfolio allocation at year-end was dominated by physical precious metals at 46.9%, equities at 32.4%, physical CHF cash at 8.5%, nominal assets at 5.2%, alternative investments at 3.9%, and crypto assets at 3.2%. RealUnit classified 87% of the portfolio as very liquid, 7% as liquid, and 6% as illiquid.
-
-## Free Float/Liquidity
+## Free Float
 
 Classification: Sufficient
 
-REALU has two relevant liquidity channels. First, the traditional shares trade on BX Swiss. Second, the tokenized shares issued on Ethereum, which can be bought or sold through the RealUnit / Aktionariat marketplace.
+REALU can be transferred and traded through RealUnit’s issuer-operated token market and Brokerbot infrastructure. These are secondary-market channels, not a contractual issuer redemption at NAV.
 
-According to the financial report, the management committee also has the right to increase/decrease the number of outstanding shares within a pre-defined range, meaning that large new investments or  sales would likely be solved through primary market transactions (increasing/decreasing the number of shares & the NAV), instead of making the share price fluctuate on the secondary market.
+The BX Swiss listing does not provide a direct exit route for REALU because it applies to the separate Series-A bearer-share class. Conversion into another legal share form requires a shareholder request and board approval; it is not an assured or immediate auction exit.
 
-However, liquidity is weaker than for large listed equities or major crypto assets. BX Swiss is a small trading venue, the tokenized share float is limited, and liquidators should not assume that large primary market transactions can always be fulfilled swiftly, as the pre-defined band of number of shares might be reached within a certain period.
-
-The free-float classification is therefore sufficient rather than strong.
+The tokenized share float and buyer universe remain limited, and liquidation depends on buyers willing to acquire the unlisted Series-B shares in token form. The Free Float classification is therefore Sufficient.
 
 ## Public Information
 
 Classification: Sufficient
 
-RealUnit publishes financial reports, ongoing NAV information, shareholder and corporate-governance disclosures, and BX Swiss as well as the token market place have regular trading activity.
+RealUnit publishes annual reports, ongoing NAV information, shareholder and corporate-governance disclosures, tokenized-share documentation and information about the listed Series-A bearer shares. This supports a transparent NAV-based assessment of the underlying portfolio.
+
+The tokenized Series-B shares lack a deep, continuously observable market price. The listed Series-A market and published NAV provide reference points for estimating auction outcomes, but do not establish direct executable depth for REALU.
 
 ## Market Risk
 
-99%-VaR, 48h close-to-close: -7.54%
+99%-VaR, 72h close-to-close: 7.64%
 
-Worst 48h close-to-close drawdown: -11.56%
+Worst 72h close-to-close drawdown observed from 18 August 2025 to 5 November 2026: 11.56%
 
-REALU is listed on BX Swiss, which shows that the worst 48h close-to-close drawdown was -11.56% over the last 2 years of price history.
-
-This means a 15% reserve remains above the observed worst 48h close-to-close drawdown and provides an additional buffer for the challenger reward and auction execution risk.
+The listed Series A bearer shares show the 11.56% largest price decline over 72 hours. These figures do not represent direct trading conditions for the tokenized Series B shares. The 20% retained reserve remains above this decline and provides an additional buffer for the distinct execution risk of the tokenized shares.
 
 ## Tail Risks
 
 ### Counterparty Risk: RealUnit Schweiz AG
 
-Description: The portfolio is managed by RealUnit Schweiz AG, including storage of physical cash and gold, and custody of Bitcoin & ETH. Mismanagement, wrong NAV reporting, or fraud by the company could lead to a sudden NAV impairment.
-
-Probability: Medium
+Likelihood: Medium
 
 Severity: Severe
 
-Compensation: 1.00%
+Compensation: 1.50%
 
-This is the dominant economic risk. The risk is that the portfolio NAV falls materially, is restated, or cannot be realized at the reported value during stress.
+RealUnit manages the investment portfolio, including portfolio valuation, custody and realisation of physical precious metals, cash and crypto assets. Mismanagement, fraud, a material valuation restatement or impaired asset realisation could reduce NAV materially.
 
-However, the portfolio is diversified and mostly liquid, with substantial exposure to physical precious metals, cash, listed equities, and other financial assets. This supports a lower structural risk profile, and a drawdown beyond the retained reserve would likely not wipe out the entire value of the underlying assets.
+RealUnit also operates the off-chain share register and the Brokerbot-based token-market route. Only registered shareholders can exercise voting and dividend rights. The issuer can refuse or remove registration in specified false or incomplete-information circumstances.
 
-A 1.00% compensation is therefore assigned for this counterparty risk.
+The populated owner role can mint within the declared share ceiling, alter that ceiling, change token terms and recovery collateral, reactivate transfer restrictions, assign address types and declare tokens invalid. Declaring tokens invalid does not technically freeze or transfer them, but can detach them from the underlying shareholder rights.
 
-Global Minting Limit: 5,000,000 ZCHF
+### Smart-Contract Risk: Smart-Contract Exploit
 
-Since the classification of this risk is medium, this warrants a cap on the global minting limit. With a 85% reserve requirement, 4,250,000 ZCHF could maximally be withdrawn. Assuming a tail event could lead to a severe but not critical impairment beyond the 15% buffer, this would still be absorbable by the system equity.
-
-### Smart Contract Risk: Smart-Contract Exploit
-
-Description: REALU is implemented as a tokenized equity instrument using Aktionariat AG technology and therefore carries residual smart-contract and token-infrastructure risk.
-
-Probability: Very Low
+Likelihood: Very Low
 
 Severity: Critical
 
 Compensation: 0.50%
 
-REALU is not a vanilla ERC-20 from a collateral perspective. It is a tokenized registered share with related shareholder-registration, and lost-key recovery mechanics. These features are appropriate for a Swiss tokenized-share instrument, but they expand the attack surface relative to a simple ERC-20 token.
+REALU is a tokenized registered share using a bespoke smart-contract stack, including the REALU token, RecoveryHub and related settlement infrastructure.
 
-A 0.50% compensation is assigned for residual smart-contract and token-infrastructure risk.
+A smart-contract failure or exploit could make the token inaccessible, cause an incorrect transfer or disrupt settlement. In that case, Frankencoin could be unable to move or liquidate pledged REALU even if the underlying RealUnit shares remain economically intact.
 
-### Governance Risk: Company Governance
+### Governance Risk: Admin-Control
 
-Description: RealUnit's NAV depends on board, management, and investment-committee decisions regarding asset allocation, capital increases, treasury shares, and investment policy.
+Likelihood: Very Low
 
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-There is no operating business to manage, but the board, management, and investment committee control the investment strategy and asset allocation.
-
-This is however already addressed by the counterparty risk, therefore no additional premium is assigned.
-
-### Legal Risk: n/a
-
-Description: No separate legal-risk premium is assigned.
-
-Probability: n/a
-
-Severity: n/a
-
-Compensation: 0%
-
-### Liquidity Risk: Secondary Market Liquidity
-
-Description: REALU has better secondary-market liquiditz than other tokenized shares, but liquidity remains limited relative to major listed equities or crypto collateral.
-
-Probability: Low
-
-Severity: Severe
+Severity: Critical
 
 Compensation: 0.50%
 
-The BX Swiss listing and RealUnit's Brokerbot/token infrastructure provide useful secondary market liquidity. They do however not guarantee that a Frankencoin challenger can challenge a large position quickly enough.
+The REALU owner can declare tokens invalid. Invalidating a token does not technically freeze, burn or transfer it, but it detaches the affected amount from the underlying shareholder rights.
 
-In stress, the auction buyer universe may be limited to investors who understand RealUnit, and are willing to hold such a share.
-
-A 0.50% compensation is assigned for residual secondary-market liquidity risk.
-
-### Contagion Risk: n/a
-
-Description: REALU is (intentionally) uncorrelated with crypto markets, and would not be affected by defi/crypto market contagion.
-
-Probability: Negligible
-
-Severity: n/a
-
-Compensation: 0%
-
-No separate contagion-risk premium is assigned.
+This power is relevant where tokens are treated as lost or stolen and the issuer follows the applicable recovery or legal process. If REALU pledged to Frankencoin were declared invalid, the position could still hold tokens on-chain but no longer hold the corresponding RealUnit shares.
 
 ## Conclusion
 
-REALU is a high-quality collateral . It is materially stronger than other tokenized shares on public information and valuation basis because RealUnit is a BX Swiss-listed investment company and its value is primarily NAV-based, leaving much less room for valuation uncertainty.
+The 20% retained reserve is above the 11.56% largest price decline observed over 72 hours in the listed Series A bearer shares. It also provides a buffer for the execution risk of the tokenized Series B shares. The 2.50% effective interest rate compensates RealUnit Schweiz AG counterparty risk, tokenized share smart contract risk and admin control risk. The 2,500,000 ZCHF global minting limit restricts the maximum withdrawable amount to 2,000,000 ZCHF and contains exposure to the Medium / Severe RealUnit Schweiz AG counterparty risk. REALU’s Sufficient Free Float supports a 72 hour auction duration, and a maturity of 2 years is appropriate before reassessment.
